@@ -76,8 +76,8 @@ public class SearchJockey extends Search{
     void EntryRaceDisplay(ResultSet rs){
         //" SELECT date,race.name,horceName,leg,horceRank From jockey,run,race WHERE jockey.ID=run.jockeyID AND race.ID=raceID AND jockey.I
 		try {
-            System.out.println("\nレース戦績");                
-            System.out.println("出走日\tレース名　　　　　　  馬名\t脚質\t順位");
+            System.out.println("\nレース戦績");                             
+            System.out.println("出走日    \tレース名　　　　　　\t馬名　　　　　　　\t脚質\t順位");
             while(rs.next()){
                 java.sql.Date date = rs.getDate("date");
                 String raceName = rs.getString("race.name");
@@ -90,7 +90,7 @@ public class SearchJockey extends Search{
                 while(raceName.length()<10){
                     raceName+="　";
                 }
-                System.out.println(date+"\t"+raceName+"  "+horceName+"\t"+leg+"\t"+horceRank);
+                System.out.println(date+"\t"+raceName+"\t"+horceName+"\t"+leg+"\t"+horceRank);
             }
 		} catch (SQLException se) {
 			System.out.println("SQL Error: " + se.toString() + " "
