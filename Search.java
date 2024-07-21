@@ -23,7 +23,7 @@ public abstract class Search{
             // 本来はここで入力された文字列が不正なものでないか検査した方が良い
             st.setString(1, keyWord); // ここでSQLの ? の場所に値を埋め込んでいる
 
-                    // SQLを実行して、実行結果をResultSetに入れる
+            // SQLを実行して、実行結果をResultSetに入れる
             rs=st.executeQuery();
 		} catch (SQLException se) {
 			System.out.println("SQL Error: " + se.toString() + " "
