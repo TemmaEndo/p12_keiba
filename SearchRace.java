@@ -22,7 +22,7 @@ public class SearchRace extends Search{
 		try {
             //検索
             this.rs=DBInquory(this.sql1,"%"+InputKeyword(target)+"%");
-            if (!rs.next() ) {    
+            if (!rs.isBeforeFirst() ) {    
                 System.out.println("No data"); 
             } else{
                 //結果
