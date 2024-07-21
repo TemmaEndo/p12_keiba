@@ -19,33 +19,44 @@ public class SearchRace extends Search{
 
     @Override
     void DoSearch(){
-        //検索
-        this.rs=DBInquory(this.sql1,"%"+InputKeyword(target)+"%");
-        //結果
-        List<String> ID=InquoryResultDisplay(this.rs,1);
-        //確認
-        String confirmation;
-        int key=-1;
-        do{
-            //選択
-            do{
-                key = Integer.parseInt(InputKeyword("番号"))-1;
-            }while(key>= ID.size()||key<0);
-            //表示
-            this.rs=DBInquory(this.sql2,ID.get(key));
-            List<String> ID2=InquoryResultDisplay(this.rs,key+1);
-            System.out.println("このレースでよろしいでしょうか<y/n>");
-            do{
-                Scanner scanner = new Scanner(System.in);
-                confirmation=scanner.nextLine();
-            }while(!confirmation.matches("[yYnN]"));
-        }while(!confirmation.matches("[yY]"));
-        //レース情報表示
-        this.rs=DBInquory(this.sql2,ID.get(key));
-        RaceInfoDisplay(this.rs);
-        this.rs=DBInquory(this.sql3,ID.get(key));
-        EntryHorceInfoDisplay(this.rs);
-        //出走馬情報表示
+		try {
+            //検索
+            this.rs=DBInquory(this.sql1,"%"+InputKeyword(target)+"%");
+            if (!rs.next() ) {    
+                System.out.println("No data"); 
+            } else{
+                //結果
+                List<String> ID=InquoryResultDisplay(this.rs,1);
+                //確認
+                String confirmation;
+                int key=-1;
+                do{
+                    //選択
+                    do{
+                        key = Integer.parseInt(InputKeyword("番号"))-1;
+                    }while(key>= ID.size()||key<0);
+                    //表示
+                    this.rs=DBInquory(this.sql2,ID.get(key));
+                    List<String> ID2=InquoryResultDisplay(this.rs,key+1);
+                    System.out.println("このレースでよろしいでしょうか<y/n>");
+                    do{
+                        Scanner scanner = new Scanner(System.in);
+                        confirmation=scanner.nextLine();
+                    }while(!confirmation.matches("[yYnN]"));
+                }while(!confirmation.matches("[yY]"));
+                //レース情報表示
+                this.rs=DBInquory(this.sql2,ID.get(key));
+                RaceInfoDisplay(this.rs);
+                //出走馬情報表示
+                this.rs=DBInquory(this.sql3,ID.get(key));
+                EntryHorceInfoDisplay(this.rs);
+            }
+		} catch (SQLException se) {
+			System.out.println("SQL Error: " + se.toString() + " "
+				+ se.getErrorCode() + " " + se.getSQLState());
+		} catch (Exception e) {
+			System.out.println("Error: " + e.toString() + e.getMessage());
+		}
     }
     
     List<String> InquoryResultDisplay(ResultSet rs,int i){
