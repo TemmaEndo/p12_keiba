@@ -13,7 +13,7 @@ public class SearchRace extends Search{
     // &useServerPrepStmts=true <- 静的プレースホルダを使用
     String sql1;
     String sql2 = "SELECT race.ID,race.name,raceRank,year,tracksName,raceNum,baba,dist,going,temperature,weather FROM race,held,tracks WHERE ID =raceID AND tracksName =tracks.name AND race.ID=?;";
-    String sql3 = "SELECT horceRank,odds,bracketNum,horceName,weight,sex,age,time,jockey.name FROM race,run,horce,jockey WHERE race.ID =raceID AND jockey.ID=jockeyID AND horce.name=horceName AND raceID=? ORDER BY horceRank;";
+    String sql3 = "SELECT horceRank,odds,bracketNum,horceName,weight,sex,age,time,jockey.name FROM race,run,horce,jockey WHERE race.ID =raceID AND jockey.ID=jockeyID AND horce.name=horceName AND raceID=? ORDER BY CASE WHEN horceRank = 0 THEN 0 ELSE 100 END DESC,horceRank;";
     String target;
     //List<String> keyWords;
 
@@ -22,7 +22,7 @@ public class SearchRace extends Search{
 		try {
             //検索
             this.rs=DBInquory(this.sql1,"%"+InputKeyword(target)+"%");
-            if (!rs.next() ) {    
+            if (!rs.isBeforeFirst() ) {    
                 System.out.println("No data"); 
             } else{
                 //結果
