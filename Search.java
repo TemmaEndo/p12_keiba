@@ -13,7 +13,9 @@ public abstract class Search{
     PreparedStatement st;
     ResultSet rs;
 
+    //検索本体
     abstract void DoSearch();
+    //SQL文とキーワードから検索を行い結果を返す
     ResultSet  DBInquory(String sql,String keyWord){
 		try {
             st=conn.prepareStatement(sql);
@@ -31,6 +33,7 @@ public abstract class Search{
 		}
         return rs;
     }
+    //キーワードを取得
     String InputKeyword(String targetName){
         Scanner scanner = new Scanner(System.in);
         System.out.println(targetName+"を入力してください:");
