@@ -105,7 +105,7 @@ public class SearchRace extends Search{
         //SELECT horceRank,odds,bracketNum,horceName,weight,sex,age,time 
 		try {
             System.out.println("\n出走馬情報");                
-            System.out.println("順位"+"\t"+"人気"+"\t"+"枠番"+"\t"+"馬名　　　　　　"+"\t"+"騎手　　　　　　　　"+"\t"+"体重"+"\t"+"年齢"+"\t"+"タイム");
+            System.out.println("順位"+"\t"+"人気"+"\t"+"枠番"+"\t"+"馬名　　　　　　"+"\t"+P"騎手　　　　　　　　"+"\t"+"体重"+"\t"+"年齢"+"\t"+"タイム");
             while(rs.next()){
                 int horceRank = rs.getInt("horceRank");
                 int odds = rs.getInt("odds");
@@ -116,14 +116,8 @@ public class SearchRace extends Search{
                 String sex = rs.getString("sex");
                 int age = rs.getInt("age");
                 float time = rs.getFloat("time");
-                while(horceName.length()<9){
-                    horceName+="　";
-                }
-                while(jockeyName.length()<10){
-                    jockeyName+="　";
-                }
-                System.out.println(horceRank+"\t"+odds+"\t"+bracketNum+"\t"+horceName+"\t"+jockeyName+"\t"+weight+"\t"+sex+age+"\t"+(int)(time/60)+":"+String.format("%3.1f",time%60));
-                //System.out.printf("%2d\t%-2d\t%-2d\t\t%9s\t\t%-3d\t%-1s%-2d\t\n",horceRank,odds,bracketNum,horceName,weight,sex,age);
+
+                System.out.println(horceRank+"\t"+odds+"\t"+bracketNum+"\t"+PlusSpace(horceName,9)+"\t"+PlusSpace(jockeyName,10)+"\t"+weight+"\t"+sex+age+"\t"+(int)(time/60)+":"+String.format("%3.1f",time%60));
 
             }
 		} catch (SQLException se) {

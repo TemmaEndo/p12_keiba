@@ -54,6 +54,10 @@ public abstract class Search{
         String keyWord=scanner.nextLine();
         return keyWord;
     }
+    String PlusSpace(String str,int num){
+        while(str.length()<num) str+="　";
+        return str;
+    }
     Search(){
         //keyWords=new ArrayList<String>();
 
