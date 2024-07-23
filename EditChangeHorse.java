@@ -8,8 +8,7 @@
  import java.sql.*;
 
  public class EditChangeHorse extends EditChange{
-    String HorseName,HorseSex;
-    //HorseBirthday : date ?
+    String HorseName,HorseSex,HorseBirthday;
     EditChangeHorse(){
 
     }

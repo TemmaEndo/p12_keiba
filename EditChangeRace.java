@@ -9,10 +9,9 @@
 
  public class EditChangeRace extends EditChange{
     int RaceID,RaceYear,RaceNumber,HorseCount,RaceDistance;
-    String RaceRank,RaceName,TrackCondition;
-    //RaceDate : date ?
+    String RaceRank,RaceName,TrackCondition,RaceDate;
 
     EditChangeRace(){
-        
+
     }
  }
