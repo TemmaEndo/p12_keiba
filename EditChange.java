@@ -8,5 +8,7 @@
  import java.sql.*;
 
 public abstract class EditChange{
-    
+    EditChange(){
+
+    }
 }
