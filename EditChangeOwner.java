@@ -8,5 +8,10 @@
  import java.sql.*;
 
  public class EditChangeOwner extends EditChange{
-    
+    String OwnerName;
+    int OwnerID;
+
+    EditChangeOwner(){
+        
+    }
  }

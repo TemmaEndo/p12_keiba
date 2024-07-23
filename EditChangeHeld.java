@@ -8,5 +8,10 @@
  import java.sql.*;
 
  public class EditChangeHeld extends EditChange{
-    
+    String TrackName,RaceID,Going,Weather;
+    float Temperature;
+
+    EditChangeHeld(){
+        
+    }
  }

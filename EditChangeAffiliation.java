@@ -8,5 +8,10 @@
  import java.sql.*;
 
  public class EditChangeAffiliation extends EditChange{
-    
+    int TrainerID;
+    String BarnName;
+
+    EditChangeAffiliation(){
+
+    }
  }

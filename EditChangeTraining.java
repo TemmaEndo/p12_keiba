@@ -8,5 +8,9 @@
  import java.sql.*;
 
 public class EditChangeTraining extends EditChange{
-    
+    int TrainerID,HorseID;
+
+    EditChangeTraining(){
+        
+    }
 }

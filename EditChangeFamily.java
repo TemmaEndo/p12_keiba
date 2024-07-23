@@ -8,5 +8,9 @@
  import java.sql.*;
 
  public class EditChangeFamily extends EditChange{
-    
+    String ParentName,ChildName;
+
+    EditChangeFamily(){
+
+    }
  }

@@ -8,5 +8,10 @@
  import java.sql.*;
 
  public class EditChangeJockey extends EditChange{
-    
+    String JockeyName;
+    int JockeyID;
+
+    EditChangeJockey(){
+        
+    }
  }
