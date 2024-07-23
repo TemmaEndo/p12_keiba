@@ -1,6 +1,6 @@
 /**
  * SearchRace
- * レース検索に責任を持つクラス
+ * 馬検索に責任を持つクラス
  * @author Daiki Onda
  */
 

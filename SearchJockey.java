@@ -1,6 +1,6 @@
 /**
  * SearchJockey
- * 騎手名年検索に責任を持つクラス
+ * 騎手名検索に責任を持つクラス
  * @author DAIKI ONDA
  */
 
