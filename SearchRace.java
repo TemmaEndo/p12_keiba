@@ -117,7 +117,7 @@ public class SearchRace extends Search{
                 int age = rs.getInt("age");
                 float time = rs.getFloat("time");
 
-                System.out.println(horceRank+"\t"+odds+"\t"+bracketNum+"\t"+PlusSpace(horceName,9)+"\t"+PlusSpace(jockeyName,10)+"\t"+weight+"\t"+sex+age+"\t"+(int)(time/60)+":"+String.format("%3.1f",time%60));
+                System.out.println(horceRank+"\t"+odds+"\t"+bracketNum+"\t"+PlusSpace(horceName,9)+"\t"+PlusSpace(jockeyName,10)+"\t"+weight+"\t"+sex+age+"\t"+(int)(time/60)+":"+String.format("%02d"+"."+"%1d",(int)(time%60),(int)((time-(int)time)*10)));
 
             }
 		} catch (SQLException se) {
