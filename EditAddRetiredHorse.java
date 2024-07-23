@@ -7,7 +7,7 @@
 import java.util.*;
 import java.sql.*;
 
-public class EditAddHorse extends EditAdd{
+public class EditAddRetiredHorse extends EditAdd{
     private Scanner scanner = new Scanner(System.in);
 
     String sql1 = " INSERT INTO family(Name, Date) VALUES (?, ?) ";
@@ -19,7 +19,7 @@ public class EditAddHorse extends EditAdd{
             System.out.println("引退馬要素の入力: 親の名前(VARCHAR(9)), 引退日(DATE)");
             String Name = scanner.nextLine();
 
-            st = conn.horse(sql1);
+            st = conn.family(sql1);
 
             //int ID = 1 + DBInquory(this.sql2); データベースの量分からん
 

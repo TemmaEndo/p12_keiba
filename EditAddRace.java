@@ -7,7 +7,7 @@
  import java.util.*;
  import java.sql.*;
 
-public class EditAddHorse extends EditAdd{
+public class EditAddRace extends EditAdd{
     String sql1 = " INSERT INTO Race(ID, Year, Date, RaceNum, Name, TrackCondition, RaceRank, NumHorses, Distance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
     String sql2 = " SELECT MAX(ID) FROM race ";
 

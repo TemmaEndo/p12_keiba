@@ -19,7 +19,7 @@ public class EditAddHorse extends EditAdd{
     @Override
     void DoAdd(){
         try{
-            System.out.println("馬要素の入力: 名前(VARCHAR(9)),生年月日(DATE),性別(VARCHAR(2))");
+            System.out.println("馬要素の入力: 名前(VARCHAR(9)), 生年月日(DATE), 性別(VARCHAR(2))");
             String horseData = scanner.nextLine();
 
             st = conn.horse(sql1);
