@@ -14,13 +14,14 @@ public abstract class Search{
     ResultSet rs;
 
     abstract void DoSearch();
-    ResultSet  DBInquory(String sql,String keyWord){
+    ResultSet  DBInquory(String sql,String ...keyWord){
 		try {
             st=conn.prepareStatement(sql);
 
             // 本来はここで入力された文字列が不正なものでないか検査した方が良い
-            st.setString(1, keyWord); // ここでSQLの ? の場所に値を埋め込んでいる
-
+            for(int i=0;i<keyWord.length;i++){
+                st.setString(i+1, keyWord[i]); // ここでSQLの ? の場所に値を埋め込んでいる
+            }
                     // SQLを実行して、実行結果をResultSetに入れる
             rs=st.executeQuery();
 		} catch (SQLException se) {
@@ -31,13 +32,14 @@ public abstract class Search{
 		}
         return rs;
     }
-    ResultSet  DBInquory(String sql,int keyWord){
+    ResultSet  DBInquory(String sql,int ...keyWord){
 		try {
             st=conn.prepareStatement(sql);
 
             // 本来はここで入力された文字列が不正なものでないか検査した方が良い
-            st.setInt(1, keyWord); // ここでSQLの ? の場所に値を埋め込んでいる
-
+            for(int i=0;i<keyWord.length;i++){
+                st.setInt(i+1, keyWord[i]); // ここでSQLの ? の場所に値を埋め込んでいる
+            }
                     // SQLを実行して、実行結果をResultSetに入れる
             rs=st.executeQuery();
 		} catch (SQLException se) {
