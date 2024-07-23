@@ -1,6 +1,6 @@
 /**
  * SearchJockey
- * 騎手名年検索に責任を持つクラス
+ * 騎手名検索に責任を持つクラス
  * @author DAIKI ONDA
  */
 
@@ -77,20 +77,14 @@ public class SearchJockey extends Search{
         //" SELECT date,race.name,horceName,leg,horceRank From jockey,run,race WHERE jockey.ID=run.jockeyID AND race.ID=raceID AND jockey.I
 		try {
             System.out.println("\nレース戦績");                             
-            System.out.println("出走日    \tレース名　　　　　　\t馬名　　　　　　　\t脚質\t順位");
+            System.out.println("出走日    \tレース名　　　　　　　　　　　\t馬名　　　　　　　\t脚質\t順位");
             while(rs.next()){
-                java.sql.Date date = rs.getDate("date");
+                String date = rs.getString("date");
                 String raceName = rs.getString("race.name");
                 String horceName = rs.getString("horceName");
                 String leg = rs.getString("leg");
                 int horceRank = rs.getInt("horceRank");
-                while(horceName.length()<9){
-                    horceName+="　";
-                }
-                while(raceName.length()<10){
-                    raceName+="　";
-                }
-                System.out.println(date+"\t"+raceName+"\t"+horceName+"\t"+leg+"\t"+horceRank);
+                System.out.println(date+"\t"+PlusSpace(raceName,15)+"\t"+PlusSpace(horceName,9)+"\t"+leg+"\t"+horceRank);
             }
 		} catch (SQLException se) {
 			System.out.println("SQL Error: " + se.toString() + " "
