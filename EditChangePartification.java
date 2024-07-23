@@ -10,9 +10,9 @@
  public class EditChangePartification extends EditChange{
     int RaceID,JockeyID,Odds,RaceRank,HorseAge,BracketNumber;
     String HorseName,HorseLeg;
-    float RaceTime,HorseWeight;
+    double RaceTime,HorseWeight;
 
     EditChangePartification(){
-        
+
     }
  }

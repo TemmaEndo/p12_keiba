@@ -9,9 +9,9 @@
 
  public class EditChangeHeld extends EditChange{
     String TrackName,RaceID,Going,Weather;
-    float Temperature;
+    double Temperature;
 
     EditChangeHeld(){
-        
+
     }
  }
