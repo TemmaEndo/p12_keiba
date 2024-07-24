@@ -8,12 +8,12 @@
  import java.util.*;
  import java.sql.*;
 
- public class KeibaManagerManager {
+ public class KeibaManager {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
-		Search s11 = new SearchRaceName();
-		Search s12 = new SearchRaceYear();
+		//Search s11 = new SearchRaceName();
+		//Search s12 = new SearchRaceYear();
 
 		Search s21 = new SearchHorseAge();
 		Search s22 = new SearchHorseName();
@@ -39,7 +39,7 @@
 		Edit e211 = new EditDeletionTrainer();
 		Edit e212 = new EditDeletionTraining();
 
-		Edit e301 = new EditChangeAffiation();
+		Edit e301 = new EditChangeAffiliation();
 		Edit e302 = new EditChangeFamily();
 		Edit e303 = new EditChangeHeld();
 		Edit e304 = new EditChangeHorse();
