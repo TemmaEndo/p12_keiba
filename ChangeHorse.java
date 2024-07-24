@@ -7,6 +7,9 @@
  import java.util.*;
  import java.sql.*;
 
- public class EditChangeHorse extends EditChange{
-    
+ public class ChangeHorse extends Change{
+    String HorseName,HorseSex,HorseBirthday;
+    ChangeHorse(){
+
+    }
  }

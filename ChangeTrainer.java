@@ -7,6 +7,10 @@
  import java.util.*;
  import java.sql.*;
 
- public class EditChangeTrainer extends EditChange{
-    
+ public class ChangeTrainer extends Change{
+    int TrainerID;
+    int TrainerName;
+    ChangeTrainer(){
+        
+    }
  }

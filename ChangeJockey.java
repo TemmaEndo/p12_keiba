@@ -7,6 +7,11 @@
  import java.util.*;
  import java.sql.*;
 
- public class EditChangeJockey extends EditChange{
-    
+ public class ChangeJockey extends Change{
+    String JockeyName;
+    int JockeyID;
+
+    ChangeJockey(){
+        
+    }
  }

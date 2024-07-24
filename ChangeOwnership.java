@@ -7,6 +7,11 @@
  import java.util.*;
  import java.sql.*;
 
- public class EditChangeOwnership extends EditChange{
-    
+ public class ChangeOwnership extends Change{
+    String HorseName;
+    int OwnerID;
+
+    ChangeOwnership(){
+        
+    }
  }

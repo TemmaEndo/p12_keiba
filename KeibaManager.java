@@ -8,10 +8,10 @@
  import java.util.*;
  import java.sql.*;
 
- public class KeibaManagerManager {
+ public class KeibaManager {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-
+    
 		Search s111 = new SearchRaceName();
 		Search s112 = new SearchRaceYear();
 
