@@ -7,8 +7,8 @@
  import java.util.*;
  import java.sql.*;
 
-public abstract class EditChange{
-    EditChange(){
+public abstract class Change{
+    Change(){
 
     }
 }

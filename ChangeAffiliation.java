@@ -7,11 +7,11 @@
  import java.util.*;
  import java.sql.*;
 
- public class EditChangeAffiliation extends EditChange{
+ public class ChangeAffiliation extends Change{
     int TrainerID;
     String BarnName;
 
-    EditChangeAffiliation(){
+    ChangeAffiliation(){
         
     }
  }

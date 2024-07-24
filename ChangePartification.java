@@ -7,12 +7,12 @@
  import java.util.*;
  import java.sql.*;
 
- public class EditChangePartification extends EditChange{
+ public class ChangePartification extends Change{
     int RaceID,JockeyID,Odds,RaceRank,HorseAge,BracketNumber;
     String HorseName,HorseLeg;
     double RaceTime,HorseWeight;
 
-    EditChangePartification(){
+    ChangePartification(){
 
     }
  }

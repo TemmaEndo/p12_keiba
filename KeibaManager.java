@@ -39,18 +39,18 @@
 		Edit e211 = new EditDeletionTrainer();
 		Edit e212 = new EditDeletionTraining();
 
-		Edit e301 = new EditChangeAffiliation();
-		Edit e302 = new EditChangeFamily();
-		Edit e303 = new EditChangeHeld();
-		Edit e304 = new EditChangeHorse();
-		Edit e305 = new EditChangeJockey();
-		Edit e306 = new EditChangeOwner();
-		Edit e307 = new EditChangeOwnership();
-		Edit e308 = new EditChangePartification();
-		Edit e309 = new EditChangeRace();
-		Edit e310 = new EditChangeRetiredHorse();
-		Edit e311 = new EditChangeTrainer();
-		Edit e312 = new EditChangeTraining();
+		Edit e301 = new ChangeAffiliation();
+		Edit e302 = new ChangeFamily();
+		Edit e303 = new ChangeHeld();
+		Edit e304 = new ChangeHorse();
+		Edit e305 = new ChangeJockey();
+		Edit e306 = new ChangeOwner();
+		Edit e307 = new ChangeOwnership();
+		Edit e308 = new ChangePartification();
+		Edit e309 = new ChangeRace();
+		Edit e310 = new ChangeRetiredHorse();
+		Edit e311 = new ChangeTrainer();
+		Edit e312 = new ChangeTraining();
 
 
 		System.out.println("=== 競馬データベース ===");

@@ -7,11 +7,11 @@
  import java.util.*;
  import java.sql.*;
 
- public class EditChangeHeld extends EditChange{
+ public class ChangeHeld extends Change{
     String TrackName,RaceID,Going,Weather;
     double Temperature;
 
-    EditChangeHeld(){
+    ChangeHeld(){
 
     }
  }

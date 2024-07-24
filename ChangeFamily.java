@@ -7,10 +7,10 @@
  import java.util.*;
  import java.sql.*;
 
- public class EditChangeFamily extends EditChange{
+ public class ChangeFamily extends Change{
     String ParentName,ChildName;
 
-    EditChangeFamily(){
+    ChangeFamily(){
 
     }
  }

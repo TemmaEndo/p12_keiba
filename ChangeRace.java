@@ -7,11 +7,11 @@
  import java.util.*;
  import java.sql.*;
 
- public class EditChangeRace extends EditChange{
+ public class ChangeRace extends Change{
     int RaceID,RaceYear,RaceNumber,HorseCount,RaceDistance;
     String RaceRank,RaceName,TrackCondition,RaceDate;
 
-    EditChangeRace(){
+    ChangeRace(){
 
     }
  }
