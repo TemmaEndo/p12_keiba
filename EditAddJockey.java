@@ -1,7 +1,7 @@
 /**
  * EditAddJockey
  * 騎手要素の追加に責任を持つクラス
- * @author TemmaEndo
+ * @author Temma Endo
  */
 
 import java.util.*;
@@ -35,4 +35,11 @@ public class EditAddJockey extends EditAdd{
 			System.out.println("Error: " + e.toString() + e.getMessage());
 		}
 	}
+
+    protected void finalize() throws Throwable {
+        // 終了処理
+        rs.close();
+        st.close();
+        conn.close();
+    }
 }

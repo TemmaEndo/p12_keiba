@@ -4,10 +4,10 @@
  * @author Temma Endo
  */
 
- import java.util.*;
- import java.sql.*;
+import java.util.*;
+import java.sql.*;
 
- public class EditAddTrainer extends EditAdd{
+public class EditAddTrainer extends EditAdd{
     private Scanner scanner = new Scanner(System.in);
 
     String sql1 = " INSERT INTO trainer(TrainerID, TrainerName) VALUES (?, ?) ";
@@ -44,4 +44,11 @@
 			System.out.println("Error: " + e.toString() + e.getMessage());
 		}
 	}
+
+    protected void finalize() throws Throwable {
+        // 終了処理
+        rs.close();
+        st.close();
+        conn.close();
+    }
 }

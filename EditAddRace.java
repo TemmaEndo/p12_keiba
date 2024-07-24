@@ -4,8 +4,8 @@
  * @author Temma Endo
  */
 
- import java.util.*;
- import java.sql.*;
+import java.util.*;
+import java.sql.*;
 
 public class EditAddRace extends EditAdd{
     String sql1 = " INSERT INTO Race(ID, Year, Date, RaceNum, Name, TrackCondition, RaceRank, NumHorses, Distance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
@@ -34,5 +34,11 @@ public class EditAddRace extends EditAdd{
             st.executeUpdate();
         }
     }
+
+    protected void finalize() throws Throwable {
+        // 終了処理
+        rs.close();
+        st.close();
+        conn.close();
+    }
 }
-public class 

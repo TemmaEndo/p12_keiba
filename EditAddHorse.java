@@ -60,4 +60,11 @@ public class EditAddHorse extends EditAdd{
 			System.out.println("Error: " + e.toString() + e.getMessage());
 		}
 	}
+    
+    protected void finalize() throws Throwable {
+        // 終了処理
+        rs.close();
+        st.close();
+        conn.close();
+    }
 }
