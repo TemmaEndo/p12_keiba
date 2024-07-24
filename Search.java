@@ -1,5 +1,5 @@
 /**
- * SearchRace
+ * Search
  * 検索に責任を持つクラス
  * @author Daiki Onda
  */
