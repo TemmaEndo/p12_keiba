@@ -7,7 +7,7 @@
 import java.util.*;
 import java.sql.*;
 
-public class EditAddJockey extends EditAdd{
+public class AddJockey extends Add{
     private Scanner scanner = new Scanner(System.in);
 
     String sql1 = " INSERT INTO jockey(JockeyID, JockeyName) VALUES (?, ?) ";

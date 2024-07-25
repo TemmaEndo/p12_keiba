@@ -9,12 +9,12 @@
  import java.util.List;
  import java.util.Scanner;
 
-public class EditDeletionJockey extends EditDeletion {
+public class DeleteJockey extends Delete {
     public String jockeyName;
     private int selectedJockeyID;
     private String selectedJockeyDetail;
 
-    public EditDeletionJockey(String jockeyName) {
+    public DeleteJockey(String jockeyName) {
         this.jockeyName = jockeyName;
     }
 

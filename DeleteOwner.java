@@ -9,12 +9,12 @@
  import java.util.List;
  import java.util.Scanner;
 
-public class EditDeletionOwner extends EditDeletion {
+public class DeleteOwner extends Delete {
     public String ownerName;
     private int selectedOwnerID;
     private String selectedOwnerDetail;
 
-    public EditDeletionOwner(String ownerName) {
+    public DeleteOwner(String ownerName) {
         this.ownerName = ownerName;
     }
 

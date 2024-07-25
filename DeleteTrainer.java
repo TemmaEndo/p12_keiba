@@ -9,13 +9,13 @@
  import java.util.List;
  import java.util.Scanner;
 
-public class EditDeletionTrainer extends EditDeletion {
+public class DeleteTrainer extends Delete {
     public String trainerName;
     private int selectedTrainerID;
     private String selectedTrainerDetail;
 
 
-    public EditDeletionTrainer(String trainerName) {
+    public DeleteTrainer(String trainerName) {
         this.trainerName = trainerName;
     }
 

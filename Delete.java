@@ -6,7 +6,7 @@
 
  import java.sql.*;
 
-public abstract class EditDeletion {
+public abstract class Delete {
     public abstract String getSQLtemplate();
     public abstract void setQuery(PreparedStatement st) throws SQLException;
     public abstract void nullify(Connection conn) throws SQLException;

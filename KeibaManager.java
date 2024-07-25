@@ -20,17 +20,17 @@
 
 		Search s13 = new SearchJockey();
 
-		EditAdd a21 = new EditAddHorse();
-		EditAdd a22 = new EditAddRace();
-		EditAdd a23 = new EditAddTrainer();
-		EditAdd a24 = new EditAddretired();
-		EditAdd a25 = new EditAddJockey();
+		Add a21 = new AddHorse();
+		Add a22 = new AddRace();
+		Add a23 = new AddTrainer();
+		Add a24 = new EditAddretired();
+		Add a25 = new AddJockey();
 
-		EditDeletion d301 = new EditDeletionHorse(horseName);
-		EditDeletion d302 = new EditDeletionJockey(jockeyName);
-		EditDeletion d303 = new EditDeletionOwner(ownerName);
-		EditDeletion d304 = new EditDeletionRace(raceName);
-		EditDeletion d305 = new EditDeletionTrainer(trainerName);
+		Delete d301 = new DeleteHorse(horseName);
+		Delete d302 = new DeleteJockey(jockeyName);
+		Delete d303 = new DeleteOwner(ownerName);
+		Delete d304 = new DeleteRace(raceName);
+		Delete d305 = new DeleteTrainer(trainerName);
 
 		Change c401 = new ChangeAffiation();
 		Change c402 = new ChangeFamily();

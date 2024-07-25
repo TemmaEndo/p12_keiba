@@ -9,10 +9,10 @@
  import java.util.List;
  import java.util.Scanner;
 
-public class EditDeletionHorse extends EditDeletion {
+public class DeleteHorse extends Delete {
     public String horseName;
 
-    public EditDeletionHorse(String horseName) {
+    public DeleteHorse(String horseName) {
         this.horseName = horseName;
     }
 

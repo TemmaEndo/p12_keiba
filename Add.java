@@ -7,7 +7,7 @@
 import java.util.*;
 import java.sql.*;
 
-public abstract class EditAdd {
+public abstract class Add {
 
     Connection conn;
     PreparedStatement st;
