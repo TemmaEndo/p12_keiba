@@ -1,14 +1,14 @@
 /**
- * EditChange
- * 要素の変更に責任を持つクラス
- * @author 
- */
+* EditChange
+* 要素の変更に責任を持つクラス
+* @author 
+*/
 
- import java.util.*;
- import java.sql.*;
+import java.util.*;
+import java.sql.*;
 
- public abstract class Change{
-    
+public abstract class Change{
+
     Connection conn;
     PreparedStatement st;
     ResultSet rs;
@@ -16,7 +16,7 @@
 
     abstract void DoChange();
     ResultSet  DBInquory(String sql,String ...keyWord){
-		try {
+        try {
             st=conn.prepareStatement(sql);
 
             // 本来はここで入力された文字列が不正なものでないか検査した方が良い
@@ -25,16 +25,16 @@
             }
                     // SQLを実行して、実行結果をResultSetに入れる
             rs=st.executeQuery();
-		} catch (SQLException se) {
-			System.out.println("SQL Error: " + se.toString() + " "
-				+ se.getErrorCode() + " " + se.getSQLState());
-		} catch (Exception e) {
-			System.out.println("Error: " + e.toString() + e.getMessage());
-		}
+        } catch (SQLException se) {
+            System.out.println("SQL Error: " + se.toString() + " "
+                + se.getErrorCode() + " " + se.getSQLState());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString() + e.getMessage());
+        }
         return rs;
     }
     ResultSet  DBInquory(String sql,int ...keyWord){
-		try {
+        try {
             st=conn.prepareStatement(sql);
 
             // 本来はここで入力された文字列が不正なものでないか検査した方が良い
@@ -43,17 +43,17 @@
             }
                     // SQLを実行して、実行結果をResultSetに入れる
             rs=st.executeQuery();
-		} catch (SQLException se) {
-			System.out.println("SQL Error: " + se.toString() + " "
-				+ se.getErrorCode() + " " + se.getSQLState());
-		} catch (Exception e) {
-			System.out.println("Error: " + e.toString() + e.getMessage());
-		}
+        } catch (SQLException se) {
+            System.out.println("SQL Error: " + se.toString() + " "
+                + se.getErrorCode() + " " + se.getSQLState());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString() + e.getMessage());
+        }
         return rs;
     }
     //sql文の後に？の中身を順にstring型で渡してください
     void DBChange(String sql,String ...keyWord){
-		try {
+        try {
             st=conn.prepareStatement(sql);
 
             // 本来はここで入力された文字列が不正なものでないか検査した方が良い
@@ -82,12 +82,12 @@
             }
             // SQLを実行して、実行結果をResultSetに入れる
             rc=st.executeUpdate();
-		} catch (SQLException se) {
-			System.out.println("SQL Error: " + se.toString() + " "
-				+ se.getErrorCode() + " " + se.getSQLState());
-		} catch (Exception e) {
-			System.out.println("Error: " + e.toString() + e.getMessage());
-		}
+        } catch (SQLException se) {
+            System.out.println("SQL Error: " + se.toString() + " "
+                + se.getErrorCode() + " " + se.getSQLState());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString() + e.getMessage());
+        }
     }
     String InputKeyword(String targetName){
         Scanner scanner = new Scanner(System.in);
@@ -102,15 +102,15 @@
     Change(){
         //keyWords=new ArrayList<String>();
 
-		try {
+        try {
             conn = DriverManager.getConnection(
                         "jdbc:mysql://localhost/test?useSSL=false&characterEncoding=utf8&useServerPrepStmts=true", 
                         "root", ""
                     );		 
 
-		} catch (SQLException se) {
-			System.out.println("SQL Error: " + se.toString() + " "
-				+ se.getErrorCode() + " " + se.getSQLState());
-		} 
+        } catch (SQLException se) {
+            System.out.println("SQL Error: " + se.toString() + " "
+                + se.getErrorCode() + " " + se.getSQLState());
+        } 
     }
 }

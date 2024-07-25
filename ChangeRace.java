@@ -1,13 +1,13 @@
 /**
- * EditChangeRace
- * レース要素の変更に責任を持つクラス
- * @author 
- */
+* EditChangeRace
+* レース要素の変更に責任を持つクラス
+* @author 
+*/
 
- import java.util.*;
- import java.sql.*;
+import java.util.*;
+import java.sql.*;
 
- public class ChangeRace extends Change{
+public class ChangeRace extends Change{
     String sql1="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND name LIKE ? ORDER BY name;";
     String sql2="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND trainerID = ? ORDER BY name;";
     String sql3="UPDATE affiliation SET barnName = ? WHERE trainerID = ?;";

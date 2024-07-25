@@ -7,7 +7,7 @@
  import java.util.*;
  import java.sql.*;
 
- public class ChangeJockey extends Change{
+public class ChangeJockey extends Change{
     String sql1="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND name LIKE ? ORDER BY name;";
     String sql2="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND trainerID = ? ORDER BY name;";
     String sql3="UPDATE affiliation SET barnName = ? WHERE trainerID = ?;";
@@ -54,18 +54,18 @@
         
 
 
-		} catch (SQLException se) {
-			System.out.println("SQL Error: " + se.toString() + " "
-				+ se.getErrorCode() + " " + se.getSQLState());
-		} catch (Exception e) {
-			System.out.println("Error: " + e.toString() + e.getMessage());
-		}
+        } catch (SQLException se) {
+            System.out.println("SQL Error: " + se.toString() + " "
+                + se.getErrorCode() + " " + se.getSQLState());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString() + e.getMessage());
+        }
 
     }
     
     List<Integer> InquoryResultDisplay(ResultSet rs,int i){
         List<Integer> ID=new ArrayList<Integer>();
-		try {
+        try {
             while(rs.next()){
                 String name = rs.getString("name");
                 String barnName = rs.getString("barnName");
@@ -73,19 +73,19 @@
                 System.out.println(i+"." + "\t"+ name + "\t" + barnName);
                 i++;
             }
-		} catch (SQLException se) {
-			System.out.println("SQL Error: " + se.toString() + " "
-				+ se.getErrorCode() + " " + se.getSQLState());
-		} catch (Exception e) {
-			System.out.println("Error: " + e.toString() + e.getMessage());
-		}
+        } catch (SQLException se) {
+            System.out.println("SQL Error: " + se.toString() + " "
+                + se.getErrorCode() + " " + se.getSQLState());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString() + e.getMessage());
+        }
         return ID;
 
     }
     List<String> BarnDisplay(){
         int i=1;
         List<String> barn=new ArrayList<String>();
-		try {
+        try {
             ResultSet rs = conn.prepareStatement(sql4).executeQuery();
             while(rs.next()){
                 String name = rs.getString("name");
@@ -93,12 +93,12 @@
                 System.out.println("\t"+i+"." + "\t"+ name );
                 i++;
             }
-		} catch (SQLException se) {
-			System.out.println("SQL Error: " + se.toString() + " "
-				+ se.getErrorCode() + " " + se.getSQLState());
-		} catch (Exception e) {
-			System.out.println("Error: " + e.toString() + e.getMessage());
-		}
+        } catch (SQLException se) {
+            System.out.println("SQL Error: " + se.toString() + " "
+                + se.getErrorCode() + " " + se.getSQLState());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString() + e.getMessage());
+        }
         return barn;
 
     }
