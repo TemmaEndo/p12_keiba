@@ -11,9 +11,9 @@ public class AddHorse extends Add{
     private Scanner scanner = new Scanner(System.in);
 
     String sql1 = " INSERT INTO horse(horse.name, birthday, sex) VALUES (?, ?, ?) ";
-    String sql2 = " SELECT MAX(trainer.ID) FROM trainer INTO TrainerID";
-    String sql3 = " INSERT INTO trainer(trainer.ID, trainer.name) VALUES (?, ?) ";
-    String sql4 = " SELECT MAX(owner.ID) FROM owner ";
+    String sql2 = " SELECT ID, name FROM ?, WHERE name LIKE ? ";
+    String sql3 = " SELECT ID, name FROM ?, WHERE ID = ? ";
+    String sql4 = " INSERT INTO training(horseID, trainerID) VALUES (?, ?, ?) ";
     String sql5 = " INSERT INTO ownner(owner.ID, owner.name) VALUES (?, ?) ";
 
     @Override
@@ -21,28 +21,17 @@ public class AddHorse extends Add{
         try{
             System.out.println("馬要素の入力: 名前(VARCHAR(9)),生年月日(DATE),性別(VARCHAR(2))");
             String horseData = scanner.nextLine();
-
             String splitHorseData[] = horseData.split(",");
 
             DBChange(sql1, splitHorseData);
 
-            System.out.println("調教師要素の入力: 名前(VARCHAR(9))");
-            String TrainerName = scanner.nextLine();
+            System.out.println("調教要素の入力:");
 
-            rs = trainer.executeQuery(sql2);
-            int TrainerID = rs.getInt("trainer.ID");
-            TrainerID++;
+            DBChange(sql4, splitHorseData[0], returnID("trainer", "調教師名"));
 
-            DBChange(sql3, TrainerID, TrainerName);
-
-            System.out.println("馬主要素の入力: 名前(VARCHAR(9))");
-            String OwnerName = scanner.nextLine();
-
-            rs = owner.executeQuery(sql3);
-            int OwnerID = rs.getInt("owner.ID");
-            OwnerID++;
-
-            DBChange(sql5, OwnerID, OwnerName);
+            System.out.println("馬主所有要素の入力:");
+            
+            DBChange(sql5, splitHorseData[0], returnID("owner", "馬主名"));
 
             st.executeUpdate();
         } catch (SQLException se) {
@@ -52,6 +41,69 @@ public class AddHorse extends Add{
 			System.out.println("Error: " + e.toString() + e.getMessage());
 		}
 	}
+
+    int returnID(String tableName, String target){
+        try{
+            //検索
+            this.rs=DBInquory(this.sql2 ,tableName ,"%"+InputKeyword(target)+"%");
+            if (!rs.isBeforeFirst() ) {    
+                System.out.println("存在しません。新規登録してください。");
+                return 0;
+                //あとで
+            } else{
+                //結果
+                List<Integer> ID=InquoryResultDisplay(this.rs,1);
+                //確認
+                String confirmation;
+                int key=-1;
+                int key2=-1;
+                do{
+                    //選択
+                    do{
+                        key = Integer.parseInt(InputKeyword("番号"))-1;
+                    }while(key>= ID.size()||key<0);
+                    //表示
+                    this.rs=DBInquory(this.sql3 ,tableName ,String.valueOf(ID.get(key)));
+                    List<Integer> ID2=InquoryResultDisplay(this.rs,key+1);
+                    System.out.println("この" + target + "でよろしいでしょうか<y/n>");
+                    do{
+                        Scanner scanner = new Scanner(System.in);
+                        confirmation=scanner.nextLine();
+                    }while(!confirmation.matches("[yYnN]"));
+                }while(!confirmation.matches("[yY]"));
+
+                return ID.get(key);
+            }
+        
+
+
+		} catch (SQLException se) {
+			System.out.println("SQL Error: " + se.toString() + " "
+				+ se.getErrorCode() + " " + se.getSQLState());
+		} catch (Exception e) {
+			System.out.println("Error: " + e.toString() + e.getMessage());
+		}
+
+    }
+
+
+    List<Integer> InquoryResultDisplay(ResultSet rs,int i){
+        List<Integer> ID=new ArrayList<Integer>();
+		try {
+            while(rs.next()){
+                String name = rs.getString("");
+                ID.add(rs.getInt("ID"));
+                System.out.println(i+"." + "\t"+ name);
+                i++;
+            }
+		} catch (SQLException se) {
+			System.out.println("SQL Error: " + se.toString() + " "
+				+ se.getErrorCode() + " " + se.getSQLState());
+		} catch (Exception e) {
+			System.out.println("Error: " + e.toString() + e.getMessage());
+		}
+        return ID;
+    }
     
     protected void finalize() throws Throwable {
         // 終了処理

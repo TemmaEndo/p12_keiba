@@ -14,19 +14,16 @@ public class AddJockey extends Add{
     String sql2 = " SELECT MAX(jockey.ID) FROM jockey ";
 
     @Override
-    void DBAdd(){
+    void DoAdd(){
         try{
             System.out.println("騎手要素の入力: 名前(VARCHAR(9))");
             String JockeyName = scanner.nextLine();
 
-            int JockeyID = 1 + DBInquory(this.sql1);
+            rs = st.executeQuery(sql2);
+            int JockeyID = rs.getInt("jockey.ID");
+            JockeyID++;
             
-            st = conn.jockey(sql2);
-
-            st.setInt(1, JockeyID);
-            st.setString(2, JockeyName);
-
-            st.executeUpdate();
+            DBChange(sql1, JockeyID);
 
         } catch (SQLException se) {
 			System.out.println("SQL Error: " + se.toString() + " "
