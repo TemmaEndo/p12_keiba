@@ -14,10 +14,16 @@ public class DeleteOwner extends Delete {
     private int selectedOwnerID;
     private String selectedOwnerDetail;
 
-    public DeleteOwner(String ownerName) {
-        this.ownerName = ownerName;
+    public DeleteOwner() {
     }
 
+    @Override
+    public void enterName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("削除したい馬主の名前を入力してください");
+        ownerName = scanner.nextLine();
+    }
+ 
     @Override
     public String getSQLtemplate() {
         return "DELETE FROM owner WHERE ID=?";
