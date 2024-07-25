@@ -11,11 +11,12 @@ public abstract class Delete {
     public abstract void setQuery(PreparedStatement st) throws SQLException;
     public abstract void nullify(Connection conn) throws SQLException;
     public abstract String showDetails(Connection conn) throws SQLException;    
-
+    public abstract enterName();
     public void preQuery() { } // 必要に応じてオーバーライド. 前処理がいらないならそのまま使う
  
     public final void DBDel() {
         try {
+            enterName();
             // (必要なら)前処理 
             preQuery();
 
