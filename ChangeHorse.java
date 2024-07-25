@@ -17,7 +17,7 @@ public class ChangeHorse extends Change {
         try {
             // 検索
             this.rs = DBInquory(this.sql1, "%" + InputKeyword("変更したい馬") + "%");
-            if (!rs.isBeforeFirst()) {
+            if (!this.rs.isBeforeFirst()) {
                 System.out.println("No data");
             } else {
                 // 結果
