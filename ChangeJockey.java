@@ -1,13 +1,13 @@
 /**
- * EditChangeOwner
- * 馬主要素の変更に責任を持つクラス
+ * EditChangeJockey
+ * 騎手要素の変更に責任を持つクラス
  * @author 
  */
 
  import java.util.*;
  import java.sql.*;
 
- public class EditChangeOwner extends EditChange{
+ public class ChangeJockey extends Change{
     String sql1="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND name LIKE ? ORDER BY name;";
     String sql2="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND trainerID = ? ORDER BY name;";
     String sql3="UPDATE affiliation SET barnName = ? WHERE trainerID = ?;";
@@ -16,7 +16,7 @@
     void DoChange(){
         try{
             //検索
-            this.rs=DBInquory(this.sql1,"%"+InputKeyword("変更したい馬主")+"%");
+            this.rs=DBInquory(this.sql1,"%"+InputKeyword("変更したい騎手")+"%");
             if (!rs.isBeforeFirst() ) {    
                 System.out.println("No data"); 
             } else{
@@ -34,7 +34,7 @@
                     //表示
                     this.rs=DBInquory(this.sql2,ID.get(key));
                     List<Integer> ID2=InquoryResultDisplay(this.rs,key+1);
-                    System.out.println("この馬主でよろしいでしょうか<y/n>");
+                    System.out.println("この騎手でよろしいでしょうか<y/n>");
                     do{
                         Scanner scanner = new Scanner(System.in);
                         confirmation=scanner.nextLine();
@@ -102,7 +102,7 @@
         return barn;
 
     }
-    EditChangeOwner(){
+    ChangeJockey(){
         super();
     }
 }

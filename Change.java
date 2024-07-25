@@ -7,7 +7,7 @@
  import java.util.*;
  import java.sql.*;
 
- public abstract class EditChange{
+ public abstract class Change{
     
     Connection conn;
     PreparedStatement st;
@@ -99,7 +99,7 @@
         while(str.length()<num) str+="　";
         return str;
     }
-    EditChange(){
+    Change(){
         //keyWords=new ArrayList<String>();
 
 		try {
