@@ -1,5 +1,6 @@
 /**
  * EditChangeRetiredHorse
+ * 引退させる・現役復帰
  * 引退馬要素の変更に責任を持つクラス
  * @author 
  */
