@@ -9,7 +9,7 @@
  
  public class ChangeHorse extends Change{
     String HorseName,HorseSex,HorseBirthday;
-    String sql1="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND name LIKE ? ORDER BY name;";
+    String sql1="SELECT name FROM horse name LIKE ? ORDER BY name;"; //馬を選択
     String sql2="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND trainerID = ? ORDER BY name;";
     String sql3="UPDATE affiliation SET barnName = ? WHERE trainerID = ?;";
     String sql4="SELECT name FROM barn ORDER BY  FIELD(name, '美浦', '栗東', '地方', '外国');";
@@ -17,7 +17,7 @@
     void DoChange(){
        try{
           //検索
-          this.rs=DBInquory(this.sql1,"%"+InputKeyword("変更したいレース")+"%");
+          this.rs=DBInquory(this.sql1,"%"+InputKeyword("変更したい馬")+"%");
           if (!rs.isBeforeFirst() ) {    
              System.out.println("No data"); 
           } else{
@@ -31,32 +31,33 @@
                 //選択
                 do{
                    key = Integer.parseInt(InputKeyword("番号"))-1;
-                }while(key>= ID.size()||key<0);
+                }
+                while(key>= ID.size()||key<0);
                 //表示
                 this.rs=DBInquory(this.sql2,ID.get(key));
                 List<Integer> ID2=InquoryResultDisplay(this.rs,key+1);
-                System.out.println("このレースでよろしいでしょうか<y/n>");
+                System.out.println("この馬でよろしいでしょうか<y/n>");
                 do{
                    Scanner scanner = new Scanner(System.in);
                    confirmation=scanner.nextLine();
                 }
                 while(!confirmation.matches("[yYnN]"));
-             }while(!confirmation.matches("[yY]"));
+            }while(!confirmation.matches("[yY]"));
              
-             System.out.println("変更先を選択してください");
-             List<String> barn=BarnDisplay();
-             do{
+            System.out.println("変更先を選択してください");
+            List<String> barn=BarnDisplay();
+            do{
                 key2 = Integer.parseInt(InputKeyword("番号"))-1;
                 }while(key2>= barn.size()||key2<0);
                 DBChange(sql3,barn.get(key2),String.valueOf(ID.get(key)));
                 //表示
                 this.rs=DBInquory(this.sql2,ID.get(key));
                 List<Integer> ID2 = InquoryResultDisplay(this.rs,key+1);
-             }
+            }
           } catch (SQLException se) {
-                System.out.println("SQL Error: " + se.toString() + " " + se.getErrorCode() + " " + se.getSQLState());
+            System.out.println("SQL Error: " + se.toString() + " " + se.getErrorCode() + " " + se.getSQLState());
           } catch (Exception e) {
-             System.out.println("Error: " + e.toString() + e.getMessage());
+            System.out.println("Error: " + e.toString() + e.getMessage());
           }
        }
        
