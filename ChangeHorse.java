@@ -10,7 +10,7 @@
  public class ChangeHorse extends Change{
     String HorseName,HorseSex,HorseBirthday;
     String sql1="SELECT name FROM horse name LIKE ? ORDER BY name;"; //馬を選択
-    String sql2="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND trainerID = ? ORDER BY name;";
+    String sql2="SELECT name FROM affiliation,trainer WHERE trainerID=ID AND trainerID = ? ORDER BY name;";
     String sql3="UPDATE affiliation SET barnName = ? WHERE trainerID = ?;";
     String sql4="SELECT name FROM barn ORDER BY  FIELD(name, '美浦', '栗東', '地方', '外国');";
     @Override
