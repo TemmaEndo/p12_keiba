@@ -16,7 +16,7 @@ public class EditChangeAffiliation extends EditChange{
     void DoChange(){
         try{
             //検索
-            this.rs=DBInquory(this.sql1,"%"+InputKeyword("所属を変更したい騎手名")+"%");
+            this.rs=DBInquory(this.sql1,"%"+InputKeyword("変更したい所属")+"%");
             if (!rs.isBeforeFirst() ) {    
                 System.out.println("No data"); 
             } else{
@@ -34,14 +34,14 @@ public class EditChangeAffiliation extends EditChange{
                     //表示
                     this.rs=DBInquory(this.sql2,ID.get(key));
                     List<Integer> ID2=InquoryResultDisplay(this.rs,key+1);
-                    System.out.println("この騎手でよろしいでしょうか<y/n>");
+                    System.out.println("この所属でよろしいでしょうか<y/n>");
                     do{
                         Scanner scanner = new Scanner(System.in);
                         confirmation=scanner.nextLine();
                     }while(!confirmation.matches("[yYnN]"));
                 }while(!confirmation.matches("[yY]"));
                 
-                System.out.println("変更先の厩舎を選択してください");
+                System.out.println("変更先を選択してください");
                 List<String> barn=BarnDisplay();
                 do{
                     key2 = Integer.parseInt(InputKeyword("番号"))-1;

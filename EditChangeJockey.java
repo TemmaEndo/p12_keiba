@@ -16,7 +16,7 @@
     void DoChange(){
         try{
             //検索
-            this.rs=DBInquory(this.sql1,"%"+InputKeyword("所属を変更したい騎手名")+"%");
+            this.rs=DBInquory(this.sql1,"%"+InputKeyword("変更したい騎手")+"%");
             if (!rs.isBeforeFirst() ) {    
                 System.out.println("No data"); 
             } else{
@@ -41,7 +41,7 @@
                     }while(!confirmation.matches("[yYnN]"));
                 }while(!confirmation.matches("[yY]"));
                 
-                System.out.println("変更先の厩舎を選択してください");
+                System.out.println("変更先を選択してください");
                 List<String> barn=BarnDisplay();
                 do{
                     key2 = Integer.parseInt(InputKeyword("番号"))-1;
