@@ -10,7 +10,7 @@ import java.sql.*;
 public class AddTrainer extends Add{
     private Scanner scanner = new Scanner(System.in);
 
-    String sql1 = " INSERT INTO trainer(TrainerID, TrainerName) VALUES (?, ?) ";
+    String sql1 = " INSERT INTO trainer(ID, name) VALUES (?, ?) ";
     String sql2 = " SELECT MAX(TrainerID) FROM trainer ";
     String sql3 = " SELECT ID, name FROM barn, WHERE name LIKE ? ";
     String sql4 = " SELECT ID, name FROM barn, WHERE name = ? ";
