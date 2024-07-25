@@ -15,10 +15,16 @@ public class DeleteTrainer extends Delete {
     private String selectedTrainerDetail;
 
 
-    public DeleteTrainer(String trainerName) {
-        this.trainerName = trainerName;
+    public DeleteTrainer() {
     }
 
+    @Override
+    public void enterName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("削除したい調教師の名前を入力してください");
+        trainerName = scanner.nextLine();
+    }
+ 
     @Override
     public String getSQLtemplate() {
         return "DELETE FROM trainer WHERE ID=?";
