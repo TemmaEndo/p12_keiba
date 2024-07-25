@@ -8,8 +8,6 @@
  import java.sql.*;
 
 public class ChangeJockey extends Change{
-   String JockeyName;
-   int JockeyID;
    String sql1="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND name LIKE ? ORDER BY name;";
    String sql2="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND trainerID = ? ORDER BY name;";
    String sql3="UPDATE affiliation SET barnName = ? WHERE trainerID = ?;";

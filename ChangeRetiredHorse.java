@@ -9,7 +9,6 @@
  
  //barnName:厩舎
  public class ChangeRetiredHorse extends Change{
-    String HorseName,RetiredDate;
     String sql1="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND name LIKE ? ORDER BY name;";
     String sql2="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND trainerID = ? ORDER BY name;";
     String sql3="UPDATE affiliation SET barnName = ? WHERE trainerID = ?;";
