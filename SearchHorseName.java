@@ -10,7 +10,7 @@ public class SearchHorseName extends SearchHorse{
 
 
     SearchHorseName(){
-        super("SELECT name,birthday FROM horce WHERE name LIKE ? ORDER BY birthday DESC;","馬名");
+        super("SELECT name,birthday FROM horse WHERE name LIKE ? ORDER BY birthday DESC;","馬名");
     }
 
     protected void finalize() throws Throwable {
@@ -19,5 +19,5 @@ public class SearchHorseName extends SearchHorse{
         st.close();
         conn.close();
     }
-    //void horceInfoDisplay(ResultSet rs){
+    //void horseInfoDisplay(ResultSet rs){
 }

@@ -40,7 +40,7 @@ public class SearchHorseAge extends SearchHorse{
                 }while(!confirmation.matches("[yY]"));
                 //馬情報表示
                 this.rs=DBInquory(this.sql2,ID.get(key));
-                horceInfoDisplay(this.rs);
+                horseInfoDisplay(this.rs);
                 //出走情報表示
                 this.rs=DBInquory(this.sql3,ID.get(key));
                 EntryRaceInfoDisplay(this.rs);
@@ -54,7 +54,7 @@ public class SearchHorseAge extends SearchHorse{
     }
 
     SearchHorseAge(){
-        super("SELECT name,birthday FROM horce WHERE DATE_FORMAT(birthday,'%Y') LIKE ? ORDER BY birthday DESC","馬の誕生年");
+        super("SELECT name,birthday FROM horse WHERE DATE_FORMAT(birthday,'%Y') LIKE ? ORDER BY birthday DESC","馬の誕生年");
     }
 
     protected void finalize() throws Throwable {
@@ -63,5 +63,5 @@ public class SearchHorseAge extends SearchHorse{
         st.close();
         conn.close();
     }
-    //void horceInfoDisplay(ResultSet rs){
+    //void horseInfoDisplay(ResultSet rs){
 }

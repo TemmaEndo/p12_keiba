@@ -12,8 +12,8 @@ public class SearchHorse extends Search{
     // characterEncoding=utf8 <- 文字エンコーディングとしてutf-8を使用
     // &useServerPrepStmts=true <- 静的プレースホルダを使用
     String sql1;
-    String sql2 = " SELECT name,sex,birthday,LEAST(a.parentName, b.parentName) AS parentName1, GREATEST(a.parentName, b.parentName) AS parentName2 FROM horce,family as a,family as b WHERE name=a.childName AND name = b.childName AND a.parentName != b.parentName AND name = ? GROUP BY name, birthday, parentName1, parentName2;";
-    String sql3 = " SELECT date,race.name,jockey.name,bracketNum,horceRank,time FROM horce,run,race,jockey WHERE horce.name=horceName AND jockey.ID=jockeyID AND race.ID = raceID  AND horce.Name=? ORDER BY date DESC;";
+    String sql2 = " SELECT name,sex,birthday,LEAST(a.parentName, b.parentName) AS parentName1, GREATEST(a.parentName, b.parentName) AS parentName2 FROM horse,family as a,family as b WHERE name=a.childName AND name = b.childName AND a.parentName != b.parentName AND name = ? GROUP BY name, birthday, parentName1, parentName2;";
+    String sql3 = " SELECT date,race.name,jockey.name,bracketNum,horseRank,time FROM horse,run,race,jockey WHERE horse.name=horseName AND jockey.ID=jockeyID AND race.ID = raceID  AND horse.Name=? ORDER BY date DESC;";
     String target;
     //List<String> keyWords;
 
@@ -46,7 +46,7 @@ public class SearchHorse extends Search{
                 }while(!confirmation.matches("[yY]"));
                 //馬情報表示
                 this.rs=DBInquory(this.sql2,ID.get(key));
-                horceInfoDisplay(this.rs);
+                horseInfoDisplay(this.rs);
                 //出走情報表示
                 this.rs=DBInquory(this.sql3,ID.get(key));
                 EntryRaceInfoDisplay(this.rs);
@@ -60,7 +60,7 @@ public class SearchHorse extends Search{
     }
     
     List<String> InquoryResultDisplay(ResultSet rs,int i){
-        //SELECT name,birthday FROM horce WHERE name LIKE ? ORDER BY birthday DESC;
+        //SELECT name,birthday FROM horse WHERE name LIKE ? ORDER BY birthday DESC;
         List<String> ID=new ArrayList<String>();
 		try {
             while(rs.next()){
@@ -78,7 +78,7 @@ public class SearchHorse extends Search{
 		}
         return ID;
     }
-    void horceInfoDisplay(ResultSet rs){
+    void horseInfoDisplay(ResultSet rs){
         // " SELECT name,birthday,LEAST(a.parentName, b.parentName) AS parentName1, GREATEST(a.parentName, b.parentName) AS parentName2 
 		try {
             System.out.println("\n馬情報");
@@ -99,7 +99,7 @@ public class SearchHorse extends Search{
 		}
     }
     void EntryRaceInfoDisplay(ResultSet rs){
-        //SELECT dete,race.name,jockey.name,bracketNum,horceRank,time 
+        //SELECT dete,race.name,jockey.name,bracketNum,horseRank,time 
 		try {
             System.out.println("\n出走馬情報");                
             System.out.println("出走日      \tレース名　　　　　　　　　　　\t騎手　　　　　　　　\t枠番\t順位\tタイム");
@@ -108,9 +108,9 @@ public class SearchHorse extends Search{
                 String raceName = rs.getString("race.name");
                 String jockeyName = rs.getString("jockey.name");
                 int bracketNum = rs.getInt("bracketNum");
-                int horceRank = rs.getInt("horceRank");
+                int horseRank = rs.getInt("horseRank");
                 float time = rs.getFloat("time");
-                System.out.println(date+"\t"+PlusSpace(raceName,15)+"\t"+PlusSpace(jockeyName,10)+"\t"+bracketNum+"\t"+horceRank+"\t"+(int)(time/60)+":"+String.format("%02d"+"."+"%1d",(int)(time%60),(int)((time-(int)time)*10)));
+                System.out.println(date+"\t"+PlusSpace(raceName,15)+"\t"+PlusSpace(jockeyName,10)+"\t"+bracketNum+"\t"+horseRank+"\t"+(int)(time/60)+":"+String.format("%02d"+"."+"%1d",(int)(time%60),(int)((time-(int)time)*10)));
             }
 		} catch (SQLException se) {
 			System.out.println("SQL Error: " + se.toString() + " "

@@ -105,7 +105,7 @@ public class SearchRace extends Search{
         //SELECT horceRank,odds,bracketNum,horceName,weight,sex,age,time 
 		try {
             System.out.println("\n出走馬情報");                
-            System.out.println("順位"+"\t"+"人気"+"\t"+"枠番"+"\t"+"馬名　　　　　　"+"\t"+P"騎手　　　　　　　　"+"\t"+"体重"+"\t"+"年齢"+"\t"+"タイム");
+            System.out.println("順位"+"\t"+"人気"+"\t"+"枠番"+"\t"+"馬名　　　　　　"+"\t"+"騎手　　　　　　　　"+"\t"+"体重"+"\t"+"年齢"+"\t"+"タイム");
             while(rs.next()){
                 int horceRank = rs.getInt("horceRank");
                 int odds = rs.getInt("odds");
