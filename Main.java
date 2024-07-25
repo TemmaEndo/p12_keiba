@@ -4,8 +4,8 @@ import java.sql.*;
 public class Main {
  
     public static void main(String[] args) {
-        ChangeHorse sr = new ChangeHorse();
-        sr.DoChange();
+        ChangeHorse st = new ChangeHorse();
+        st.DoChange();
     }
  
 }
