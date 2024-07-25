@@ -10,18 +10,24 @@ import java.sql.*;
 public class AddHorse extends Add{
     private Scanner scanner = new Scanner(System.in);
 
-    String sql1 = " INSERT INTO horse(Horse, HorseBirthday, HorseSex) VALUES (?, ?, ?) ";
-    String sql2 = " SELECT MAX(TrainerID) FROM trainer ";
-    String sql3 = " INSERT INTO trainer(TrainerID, TrainerName) VALUES (?, ?) ";
-    String sql4 = " SELECT MAX(OwnerID) FROM owner ";
-    String sql5 = " INSERT INTO trainer(OwnerID, OwnerName) VALUES (?, ?) ";
+    String sql1 = " INSERT INTO horse(horse.name, birthday, sex) VALUES (?, ?, ?) ";
+    String sql2 = " SELECT MAX(trainer.ID) FROM trainer ";
+    String sql3 = " INSERT INTO trainer(trainer.ID, trainer.name) VALUES (?, ?) ";
+    String sql4 = " SELECT MAX(owner.ID) FROM owner ";
+    String sql5 = " INSERT INTO ownner(owner.ID, owner.name) VALUES (?, ?) ";
 
     @Override
     void DBAdd(){
         try{
-            System.out.println("馬要素の入力: 名前(VARCHAR(9)), 生年月日(DATE), 性別(VARCHAR(2))");
+            System.out.println("馬要素の入力: 名前(VARCHAR(9)),生年月日(DATE),性別(VARCHAR(2))");
             String horseData = scanner.nextLine();
 
+            String splitHorseData[] = horseData.split(",");
+            
+            String HorseName = splitHorseData[0];
+            Date HorseBirthday = java.sql.Date.valueOf(splitHorseData[1]);
+            String HorseSex = splitHorseData[2];
+            
             st = conn.horse(sql1);
 
             st.setString(1, HorseName);
