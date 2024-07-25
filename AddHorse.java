@@ -11,7 +11,7 @@ public class AddHorse extends Add{
     private Scanner scanner = new Scanner(System.in);
 
     String sql1 = " INSERT INTO horse(horse.name, birthday, sex) VALUES (?, ?, ?) ";
-    String sql2 = " SELECT MAX(trainer.ID) FROM trainer ";
+    String sql2 = " SELECT MAX(trainer.ID) FROM trainer INTO TrainerID";
     String sql3 = " INSERT INTO trainer(trainer.ID, trainer.name) VALUES (?, ?) ";
     String sql4 = " SELECT MAX(owner.ID) FROM owner ";
     String sql5 = " INSERT INTO ownner(owner.ID, owner.name) VALUES (?, ?) ";
@@ -39,19 +39,25 @@ public class AddHorse extends Add{
             System.out.println("調教師要素の入力: 名前(VARCHAR(9))");
             String TrainerName = scanner.nextLine();
 
-            int TrainerID = 1 + DBInquory(this.sql2);
+            rs = trainer.executeQuery(sql2);
+
+            int TrainerID = rs.getInt("trainer.ID");
+            TrainerID++;
 
             st = conn.trainer(sql3);
 
-            st.setString(4, TrainerID);
-            st.setDATE(5, TrainerName);
+            st.setInt(4, TrainerID);
+            st.setString(5, TrainerName);
 
             st.executeUpdate();
 
             System.out.println("馬主要素の入力: 名前(VARCHAR(9))");
             String OwnerName = scanner.nextLine();
 
-            int OwnerID = 1 + DBInquory(this.sql4);
+            rs = owner.executeQuery(sql3);
+
+            int OwnerID = rs.getInt("owner.ID");
+            OwnerID++;
 
             st = conn.owner(sql5);
 

@@ -10,8 +10,8 @@ import java.sql.*;
 public class AddJockey extends Add{
     private Scanner scanner = new Scanner(System.in);
 
-    String sql1 = " INSERT INTO jockey(JockeyID, JockeyName) VALUES (?, ?) ";
-    String sql2 = " SELECT MAX(JockeyID) FROM jockey ";
+    String sql1 = " INSERT INTO jockey(jockey.ID, jockey.ame) VALUES (?, ?) ";
+    String sql2 = " SELECT MAX(jockey.ID) FROM jockey ";
 
     @Override
     void DBAdd(){
