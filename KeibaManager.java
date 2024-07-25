@@ -26,11 +26,11 @@
 		Add a24 = new EditAddretired();
 		Add a25 = new AddJockey();
 
-		Delete d301 = new DeleteHorse(horseName);
-		Delete d302 = new DeleteJockey(jockeyName);
-		Delete d303 = new DeleteOwner(ownerName);
-		Delete d304 = new DeleteRace(raceName);
-		Delete d305 = new DeleteTrainer(trainerName);
+		Delete d301 = new DeleteHorse();
+		Delete d302 = new DeleteJockey();
+		Delete d303 = new DeleteOwner();
+		Delete d304 = new DeleteRace();
+		Delete d305 = new DeleteTrainer();
 
 		Change c401 = new ChangeAffiation();
 		Change c402 = new ChangeFamily();
@@ -148,39 +148,19 @@
 				String linedel = scanner.nextLine();
 				switch(linedel) {
 					case "01":
-						Scanner scanner = new Scanner(System.in);
-					        System.out.println("削除したい馬の名前を入力してください");
-					        String horseName = scanner.nextLine();
 					        d301.DoDel();
-					        scanner.close();
 						break;
 					case "02":
-						Scanner scanner = new Scanner(System.in);
-					        System.out.println("削除したい騎手の名前を入力してください");
-					        String jockeyName = scanner.nextLine();
-							d302.DoDel();
-					        scanner.close();
+						d302.DoDel();
 						break;
 					case "03":
-						Scanner scanner = new Scanner(System.in);
-					        System.out.println("削除したい馬主の名前を入力してください");
-					        String ownerName = scanner.nextLine();
 					        d303.DoDel();
-					        scanner.close();
 						break;
 					case "04":
-						Scanner scanner = new Scanner(System.in);
-					        System.out.println("削除したいレースの名前を入力してください");
-					        String raceName = scanner.nextLine();
-							d304.DoDel();
-					        scanner.close();
+						d304.DoDel();
 						break;
 					case "05":
-						Scanner scanner = new Scanner(System.in);
-					        System.out.println("削除したい調教師の名前を入力してください");
-					        String trainerName = scanner.nextLine();
-							d305.DoDel();
-					        scanner.close();
+						d305.DoDel();
 						break;
 					
 					default:
