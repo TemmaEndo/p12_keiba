@@ -32,6 +32,11 @@ public class EditAddRace extends EditAdd{
             st.setInt(9, Distance);
 
             st.executeUpdate();
+        }catch (SQLException se) {
+            System.out.println("SQL Error 1: " + se.toString() + " "
+                + se.getErrorCode() + " " + se.getSQLState());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString() + e.getMessage());
         }
     }
 
