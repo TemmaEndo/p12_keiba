@@ -14,7 +14,7 @@ public abstract class EditDeletion {
 
     public void preQuery() { } // 必要に応じてオーバーライド. 前処理がいらないならそのまま使う
  
-    public final void DBEdit() {
+    public final void DBDel() {
         try {
             // (必要なら)前処理 
             preQuery();
