@@ -7,15 +7,6 @@
  import java.util.*;
  import java.sql.*;
 
- /**
- * EditChange
- * 要素の変更に責任を持つクラス
- * @author Onda Daiki
- */
-
- import java.util.*;
- import java.sql.*;
-
  public abstract class EditChange{
     
     Connection conn;
