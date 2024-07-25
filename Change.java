@@ -1,7 +1,7 @@
 /**
 * EditChange
 * 要素の変更に責任を持つクラス
-* @author 
+* @author Onda Daiki
 */
 
 import java.util.*;
@@ -83,8 +83,7 @@ public abstract class Change{
             // SQLを実行して、実行結果をResultSetに入れる
             rc=st.executeUpdate();
         } catch (SQLException se) {
-            System.out.println("SQL Error: " + se.toString() + " "
-                + se.getErrorCode() + " " + se.getSQLState());
+            System.out.println("SQL Error: " + se.toString() + " " + se.getErrorCode() + " " + se.getSQLState());
         } catch (Exception e) {
             System.out.println("Error: " + e.toString() + e.getMessage());
         }
@@ -104,13 +103,12 @@ public abstract class Change{
 
         try {
             conn = DriverManager.getConnection(
-                        "jdbc:mysql://localhost/test?useSSL=false&characterEncoding=utf8&useServerPrepStmts=true", 
-                        "root", ""
-                    );		 
+                "jdbc:mysql://localhost/test?useSSL=false&characterEncoding=utf8&useServerPrepStmts=true", 
+                "root", ""
+            );		 
 
         } catch (SQLException se) {
-            System.out.println("SQL Error: " + se.toString() + " "
-                + se.getErrorCode() + " " + se.getSQLState());
+            System.out.println("SQL Error: " + se.toString() + " " + se.getErrorCode() + " " + se.getSQLState());
         } 
     }
 }
