@@ -23,7 +23,7 @@
 		Add a21 = new AddHorse();
 		Add a22 = new AddRace();
 		Add a23 = new AddTrainer();
-		Add a24 = new EditAddretired();
+		Add a24 = new Addretired();
 		Add a25 = new AddJockey();
 
 		Delete d301 = new DeleteHorse();
@@ -148,13 +148,13 @@
 				String linedel = scanner.nextLine();
 				switch(linedel) {
 					case "01":
-					        d301.DoDel();
+					    d301.DoDel();
 						break;
 					case "02":
 						d302.DoDel();
 						break;
 					case "03":
-					        d303.DoDel();
+					    d303.DoDel();
 						break;
 					case "04":
 						d304.DoDel();
