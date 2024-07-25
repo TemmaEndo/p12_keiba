@@ -14,10 +14,16 @@ public class DeleteRace extends Delete {
     private String selectedRaceID;
     private String selectedRaceDetail;
 
-    public DeleteRace(String raceName) {
-        this.raceName = raceName;
+    public DeleteRace() {
     }
 
+    @Override
+    public void enterName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("削除したいレースの名前を入力してください");
+        raceName = scanner.nextLine();
+    }
+ 
     @Override
     public String getSQLtemplate() {
         return "DELETE FROM race WHERE ID=?";
