@@ -29,7 +29,7 @@ public class AddHorse extends Add{
             System.out.println("調教師要素の入力: 名前(VARCHAR(9))");
             String TrainerName = scanner.nextLine();
 
-            rs = trainer.executeQuery(sql2);
+            rs = st.executeQuery(sql2);
             int TrainerID = rs.getInt("trainer.ID");
             TrainerID++;
 
@@ -38,7 +38,7 @@ public class AddHorse extends Add{
             System.out.println("馬主要素の入力: 名前(VARCHAR(9))");
             String OwnerName = scanner.nextLine();
 
-            rs = owner.executeQuery(sql3);
+            rs = st.executeQuery(sql3);
             int OwnerID = rs.getInt("owner.ID");
             OwnerID++;
 
