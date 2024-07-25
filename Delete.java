@@ -14,7 +14,7 @@ public abstract class Delete {
     public abstract enterName();
     public void preQuery() { } // 必要に応じてオーバーライド. 前処理がいらないならそのまま使う
  
-    public final void DBDel() {
+    public final void DoDel() {
         try {
             enterName();
             // (必要なら)前処理 
