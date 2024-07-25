@@ -32,18 +32,18 @@
 		EditDeletion d304 = new EditDeletionRace(raceName);
 		EditDeletion d305 = new EditDeletionTrainer(trainerName);
 
-		EditChange c401 = new EditChangeAffiation();
-		EditChange c402 = new EditChangeFamily();
-		EditChange c403 = new EditChangeHeld();
-		EditChange c404 = new EditChangeHorse();
-		EditChange c405 = new EditChangeJockey();
-		EditChange c406 = new EditChangeOwner();
-		EditChange c407 = new EditChangeOwnership();
-		EditChange c408 = new EditChangePartification();
-		EditChange c409 = new EditChangeRace();
-		EditChange c410 = new EditChangeRetiredHorse();
-		EditChange c411 = new EditChangeTrainer();
-		EditChange c412 = new EditChangeTraining();
+		Change c401 = new ChangeAffiation();
+		Change c402 = new ChangeFamily();
+		Change c403 = new ChangeHeld();
+		Change c404 = new ChangeHorse();
+		Change c405 = new ChangeJockey();
+		Change c406 = new ChangeOwner();
+		Change c407 = new ChangeOwnership();
+		Change c408 = new ChangePartification();
+		Change c409 = new ChangeRace();
+		Change c410 = new ChangeRetiredHorse();
+		Change c411 = new ChangeTrainer();
+		Change c412 = new ChangeTraining();
 
 
 		System.out.println("=== 競馬データベース ===");
@@ -75,10 +75,10 @@
 						
 						switch(lineSR){
 							case "1":
-								s111.BDsearch();
+								s111.BDSearch();
 								break;
 							case "2":
-								s112.BDsearch();
+								s112.BDSearch();
 								break;
 							default:
 								System.out.println("Incorrect number");
@@ -93,10 +93,10 @@
 						
 						switch(lineSH){
 							case "1":
-								s121.BDsearch();
+								s121.BDSearch();
 								break;
 							case "2":
-								s122.BDsearch();
+								s122.BDSearch();
 								break;
 							default:
 								System.out.println("Incorrect number");
@@ -119,19 +119,19 @@
 					String lineAdd = scanner.nextLine();
 					switch(lineAdd) {
 						case "1":
-							a21.DBEdit();
+							a21.DBAdd();
 							break;
 						case "2":
-							a22.DBEdit();
+							a22.DBAdd();
 							break;
 						case "3":
-							a23.DBEdit();
+							a23.DBAdd();
 							break;
 						case "4":
-							a24.DBEdit();
+							a24.DBAdd();
 							break;
 						case "5":
-							a25.DBEdit();
+							a25.DBAdd();
 							break;
 						default:
 							System.out.println("Incorrect number");
@@ -151,35 +151,35 @@
 						Scanner scanner = new Scanner(System.in);
 					        System.out.println("削除したい馬の名前を入力してください");
 					        String horseName = scanner.nextLine();
-					        d301.DBEdit();
+					        d301.DBDel();
 					        scanner.close();
 						break;
 					case "02":
 						Scanner scanner = new Scanner(System.in);
 					        System.out.println("削除したい騎手の名前を入力してください");
 					        String jockeyName = scanner.nextLine();
-						d302.DBEdit();
+							d302.DBDel();
 					        scanner.close();
 						break;
 					case "03":
 						Scanner scanner = new Scanner(System.in);
 					        System.out.println("削除したい馬主の名前を入力してください");
 					        String ownerName = scanner.nextLine();
-					        d303.DBEdit();
+					        d303.DBDel();
 					        scanner.close();
 						break;
 					case "04":
 						Scanner scanner = new Scanner(System.in);
 					        System.out.println("削除したいレースの名前を入力してください");
 					        String raceName = scanner.nextLine();
-						d304.DBEdit();
+							d304.DBDel();
 					        scanner.close();
 						break;
 					case "05":
 						Scanner scanner = new Scanner(System.in);
 					        System.out.println("削除したい調教師の名前を入力してください");
 					        String trainerName = scanner.nextLine();
-						d305.DBEdit();
+							d305.DBDel();
 					        scanner.close();
 						break;
 					
@@ -205,40 +205,40 @@
 				String linecha = scanner.nextLine();
 				switch(linecha) {
 					case "01":
-						c401.DBEdit();
+						c401.DBChange();
 						break;
 					case "02":
-						c402.DBEdit();
+						c402.DBChange();
 						break;
 					case "03":
-						c403.DBEdit();
+						c403.DBChange();
 						break;
 					case "04":
-						c404.DBEdit();
+						c404.DBChange();
 						break;
 					case "05":
-						c405.DBEdit();
+						c405.DBChange();
 						break;
 					case "06":
-						c406.DBEdit();
+						c406.DBChange();
 						break;
 					case "07":
-						c407.DBEdit();
+						c407.DBChange();
 						break;
 					case "08":
-						c408.DBEdit();
+						c408.DBChange();
 						break;
 					case "09":
-						c409.DBEdit();
+						c409.DBChange();
 						break;
 					case "10":
-						c410.DBEdit();
+						c410.DBChange();
 						break;
 					case "11":
-						c411.DBEdit();
+						c411.DBChange();
 						break;
 					case "12":
-						c412.DBEdit();
+						c412.DBChange();
 						break;
 					
 					default:

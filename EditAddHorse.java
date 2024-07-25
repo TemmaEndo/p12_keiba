@@ -17,7 +17,7 @@ public class EditAddHorse extends EditAdd{
     String sql5 = " INSERT INTO trainer(OwnerID, OwnerName) VALUES (?, ?) ";
 
     @Override
-    void DoAdd(){
+    void DBAdd(){
         try{
             System.out.println("馬要素の入力: 名前(VARCHAR(9)), 生年月日(DATE), 性別(VARCHAR(2))");
             String horseData = scanner.nextLine();

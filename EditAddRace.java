@@ -12,7 +12,7 @@ public class EditAddRace extends EditAdd{
     String sql2 = " SELECT MAX(ID) FROM race ";
 
     @Override
-    void DoAdd(){
+    void DbAdd(){
         try{
             System.out.println("レース要素の入力: csv \nID(INT), 開催年(YEAR), 開催日(DATE), レース番号(INT), レース名(VARCHAR(20)), 馬場(VARCHAR(3)), レースランク(VARCHAR(2)), 頭数(INT), 距離(INT)");
            

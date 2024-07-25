@@ -13,7 +13,7 @@ public abstract class EditAdd {
     PreparedStatement st;
     ResultSet rs;
 
-    abstract void DoAdd();
+    abstract void DBAdd();
     ResultSet DBInquory(String sql){
 		try {
             st=conn.prepareStatement(sql);

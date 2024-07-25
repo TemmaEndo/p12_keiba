@@ -14,7 +14,7 @@ public class EditAddRetiredHorse extends EditAdd{
     //String sql2 = " SELECT MAX(???) FROM family "; データベースの量分からん
 
     @Override
-    void DoAdd(){
+    void DBAdd(){
         try{
             System.out.println("引退馬要素の入力: 親の名前(VARCHAR(9)), 引退日(DATE)");
             String Name = scanner.nextLine();

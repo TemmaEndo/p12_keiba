@@ -15,7 +15,7 @@ public class EditAddTrainer extends EditAdd{
     String sql3 = " INSERT INTO barn(Name, Address) VALUES (?, ?) ";
 
     @Override
-    void DoAdd(){
+    void DBAdd(){
         try{
             System.out.println("馬主要素の入力: 名前(VARCHAR(9))");
             String JockeyName = scanner.nextLine();
