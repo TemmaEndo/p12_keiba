@@ -7,7 +7,7 @@
  import java.util.*;
  import java.sql.*;
 
- public class EditChangeAffiliation extends EditChange{
+public class EditChangeAffiliation extends EditChange{
     String sql1="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND name LIKE ? ORDER BY name;";
     String sql2="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND trainerID = ? ORDER BY name;";
     String sql3="UPDATE affiliation SET barnName = ? WHERE trainerID = ?;";
@@ -49,7 +49,7 @@
                 DBChange(sql3,barn.get(key2),String.valueOf(ID.get(key)));
                 //表示
                 this.rs=DBInquory(this.sql2,ID.get(key));
-                List<Integer> ID2=InquoryResultDisplay(this.rs,key+1);
+                List<Integer> ID2 = InquoryResultDisplay(this.rs,key+1);
             }
         
 
