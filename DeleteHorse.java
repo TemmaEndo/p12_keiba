@@ -12,10 +12,16 @@
 public class DeleteHorse extends Delete {
     public String horseName;
 
-    public DeleteHorse(String horseName) {
-        this.horseName = horseName;
+    public DeleteHorse() {
     }
 
+    @Override
+    public void enterName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("削除したい馬の名前を入力してください");
+        horseName = scanner.nextLine();
+    }
+ 
     @Override
     public String getSQLtemplate() {
         return "DELETE FROM horse WHERE name=?";
