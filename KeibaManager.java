@@ -75,10 +75,10 @@
 						
 						switch(lineSR){
 							case "1":
-								s111.BDSearch();
+								s111.DoSearch();
 								break;
 							case "2":
-								s112.BDSearch();
+								s112.DoSearch();
 								break;
 							default:
 								System.out.println("Incorrect number");
@@ -93,10 +93,10 @@
 						
 						switch(lineSH){
 							case "1":
-								s121.BDSearch();
+								s121.DoSearch();
 								break;
 							case "2":
-								s122.BDSearch();
+								s122.DoSearch();
 								break;
 							default:
 								System.out.println("Incorrect number");
@@ -119,19 +119,19 @@
 					String lineAdd = scanner.nextLine();
 					switch(lineAdd) {
 						case "1":
-							a21.DBAdd();
+							a21.DoAdd();
 							break;
 						case "2":
-							a22.DBAdd();
+							a22.DoAdd();
 							break;
 						case "3":
-							a23.DBAdd();
+							a23.DoAdd();
 							break;
 						case "4":
-							a24.DBAdd();
+							a24.DoAdd();
 							break;
 						case "5":
-							a25.DBAdd();
+							a25.DoAdd();
 							break;
 						default:
 							System.out.println("Incorrect number");
@@ -151,35 +151,35 @@
 						Scanner scanner = new Scanner(System.in);
 					        System.out.println("削除したい馬の名前を入力してください");
 					        String horseName = scanner.nextLine();
-					        d301.DBDel();
+					        d301.DoDel();
 					        scanner.close();
 						break;
 					case "02":
 						Scanner scanner = new Scanner(System.in);
 					        System.out.println("削除したい騎手の名前を入力してください");
 					        String jockeyName = scanner.nextLine();
-							d302.DBDel();
+							d302.DoDel();
 					        scanner.close();
 						break;
 					case "03":
 						Scanner scanner = new Scanner(System.in);
 					        System.out.println("削除したい馬主の名前を入力してください");
 					        String ownerName = scanner.nextLine();
-					        d303.DBDel();
+					        d303.DoDel();
 					        scanner.close();
 						break;
 					case "04":
 						Scanner scanner = new Scanner(System.in);
 					        System.out.println("削除したいレースの名前を入力してください");
 					        String raceName = scanner.nextLine();
-							d304.DBDel();
+							d304.DoDel();
 					        scanner.close();
 						break;
 					case "05":
 						Scanner scanner = new Scanner(System.in);
 					        System.out.println("削除したい調教師の名前を入力してください");
 					        String trainerName = scanner.nextLine();
-							d305.DBDel();
+							d305.DoDel();
 					        scanner.close();
 						break;
 					
@@ -205,40 +205,40 @@
 				String linecha = scanner.nextLine();
 				switch(linecha) {
 					case "01":
-						c401.DBChange();
+						c401.DoChange();
 						break;
 					case "02":
-						c402.DBChange();
+						c402.DoChange();
 						break;
 					case "03":
-						c403.DBChange();
+						c403.DoChange();
 						break;
 					case "04":
-						c404.DBChange();
+						c404.DoChange();
 						break;
 					case "05":
-						c405.DBChange();
+						c405.DoChange();
 						break;
 					case "06":
-						c406.DBChange();
+						c406.DoChange();
 						break;
 					case "07":
-						c407.DBChange();
+						c407.DoChange();
 						break;
 					case "08":
-						c408.DBChange();
+						c408.DoChange();
 						break;
 					case "09":
-						c409.DBChange();
+						c409.DoChange();
 						break;
 					case "10":
-						c410.DBChange();
+						c410.DoChange();
 						break;
 					case "11":
-						c411.DBChange();
+						c411.DoChange();
 						break;
 					case "12":
-						c412.DBChange();
+						c412.DoChange();
 						break;
 					
 					default:
