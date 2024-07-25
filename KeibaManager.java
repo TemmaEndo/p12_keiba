@@ -50,8 +50,8 @@
 		System.out.println("メニューを選択してください: ");
 		System.out.println("1: 検索");
 		System.out.println("2: 追加");
-		System.out.println("3: 変更");
-		System.out.println("4: 削除");
+		System.out.println("3: 削除");
+		System.out.println("4: 変更");
 		System.out.println("番号を入力してください: ");
 
 		String lineSorE = scanner.nextLine();
