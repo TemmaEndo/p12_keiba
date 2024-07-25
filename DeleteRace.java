@@ -101,7 +101,6 @@ public class DeleteRace extends Delete {
             Scanner scanner = new Scanner(System.in);
             System.out.print("これでよろしいですか？ (y/n) : ");
             String answer = scanner.nextLine();
-            scanner.close();
 
             if (answer.equals("y")) {
                 selectedRaceID = raceIDs.get(0); // 選択したレースのIDを保存
