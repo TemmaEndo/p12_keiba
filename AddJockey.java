@@ -14,7 +14,7 @@ public class AddJockey extends Add{
     String sql2 = " SELECT MAX(jockey.ID) FROM jockey ";
 
     @Override
-    void DBAdd(){
+    void DoAdd(){
         try{
             System.out.println("騎手要素の入力: 名前(VARCHAR(9))");
             String JockeyName = scanner.nextLine();

@@ -16,7 +16,7 @@ public class AddTrainer extends Add{
     String sql4 = " SELECT ID, name FROM barn, WHERE name = ? ";
 
     @Override
-    void DBAdd(){
+    void DoAdd(){
         try{
             System.out.println("調教師要素の入力: 名前(VARCHAR(9))");
             String trainerName = scanner.nextLine();

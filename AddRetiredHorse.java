@@ -13,7 +13,7 @@ public class AddRetiredHorse extends Add{
     String sql1 = " INSERT INTO family(Name, Date) VALUES (?, ?) ";
 
     @Override
-    void DBAdd(){
+    void DoAdd(){
         try{
             System.out.println("引退馬要素の入力: 親の名前(VARCHAR(9)),引退日(DATE)");
             String RetiredHorseData = scanner.nextLine();
