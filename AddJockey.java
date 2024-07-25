@@ -10,7 +10,7 @@ import java.sql.*;
 public class AddJockey extends Add{
     private Scanner scanner = new Scanner(System.in);
 
-    String sql1 = " INSERT INTO jockey(jockey.ID, jockey.ame) VALUES (?, ?) ";
+    String sql1 = " INSERT INTO jockey(jockey.ID, jockey.name) VALUES (?, ?) ";
     String sql2 = " SELECT MAX(jockey.ID) FROM jockey ";
 
     @Override
