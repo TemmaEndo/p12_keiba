@@ -15,7 +15,7 @@
     int rc;
 
     abstract void DoChange();
-    ResultSet  DBInquory(String sql,String ...keyWord){å
+    ResultSet  DBInquory(String sql,String ...keyWord){
 		try {
             st=conn.prepareStatement(sql);
 
