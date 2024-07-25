@@ -17,52 +17,32 @@ public class AddHorse extends Add{
     String sql5 = " INSERT INTO ownner(owner.ID, owner.name) VALUES (?, ?) ";
 
     @Override
-    void DBAdd(){
+    void DoAdd(){
         try{
             System.out.println("馬要素の入力: 名前(VARCHAR(9)),生年月日(DATE),性別(VARCHAR(2))");
             String horseData = scanner.nextLine();
 
             String splitHorseData[] = horseData.split(",");
-            
-            String HorseName = splitHorseData[0];
-            Date HorseBirthday = java.sql.Date.valueOf(splitHorseData[1]);
-            String HorseSex = splitHorseData[2];
-            
-            st = conn.horse(sql1);
 
-            st.setString(1, HorseName);
-            st.setDATE(2, HorseBirthday);
-            st.setString(3, HorseSex);
-
-            st.executeUpdate();
+            DBChange(sql1, splitHorseData);
 
             System.out.println("調教師要素の入力: 名前(VARCHAR(9))");
             String TrainerName = scanner.nextLine();
 
             rs = trainer.executeQuery(sql2);
-
             int TrainerID = rs.getInt("trainer.ID");
             TrainerID++;
 
-            st = conn.trainer(sql3);
-
-            st.setInt(4, TrainerID);
-            st.setString(5, TrainerName);
-
-            st.executeUpdate();
+            DBChange(sql3, TrainerID, TrainerName);
 
             System.out.println("馬主要素の入力: 名前(VARCHAR(9))");
             String OwnerName = scanner.nextLine();
 
             rs = owner.executeQuery(sql3);
-
             int OwnerID = rs.getInt("owner.ID");
             OwnerID++;
 
-            st = conn.owner(sql5);
-
-            st.setString(4, OwnerID);
-            st.setDATE(5, OwnerName);
+            DBChange(sql5, OwnerID, OwnerName);
 
             st.executeUpdate();
         } catch (SQLException se) {
