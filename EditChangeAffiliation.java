@@ -9,8 +9,8 @@
  import java.sql.*;
 
 public class EditChangeAffiliation extends EditChange{
-    String sql1=" SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND name LIKE ? ORDER BY name;";
-    String sql2=" SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND trainerID = ? ORDER BY name;";
+    String sql1="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND name LIKE ? ORDER BY name;";
+    String sql2="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND trainerID = ? ORDER BY name;";
     String sql3="UPDATE affiliation SET barnName = ? WHERE trainerID = ?;";
     String sql4="SELECT name FROM barn ORDER BY  FIELD(name, '美浦', '栗東', '地方', '外国');";
     @Override
