@@ -14,10 +14,16 @@ public class DeleteJockey extends Delete {
     private int selectedJockeyID;
     private String selectedJockeyDetail;
 
-    public DeleteJockey(String jockeyName) {
-        this.jockeyName = jockeyName;
+    public DeleteJockey() {
     }
 
+    @Override
+    public void enterName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("削除したい騎手の名前を入力してください");
+        jockeyName = scanner.nextLine();
+    }
+ 
     @Override
     public String getSQLtemplate() {
         return "DELETE FROM jockey WHERE ID=?";
