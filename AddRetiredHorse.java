@@ -11,22 +11,15 @@ public class AddRetiredHorse extends Add{
     private Scanner scanner = new Scanner(System.in);
 
     String sql1 = " INSERT INTO family(Name, Date) VALUES (?, ?) ";
-    //String sql2 = " SELECT MAX(???) FROM family "; データベースの量分からん
 
     @Override
     void DBAdd(){
         try{
-            System.out.println("引退馬要素の入力: 親の名前(VARCHAR(9)), 引退日(DATE)");
-            String Name = scanner.nextLine();
+            System.out.println("引退馬要素の入力: 親の名前(VARCHAR(9)),引退日(DATE)");
+            String RetiredHorseData = scanner.nextLine();
+            String splitRetiredHorseData[] = RetiredHorseData.split(",");
 
-            st = conn.family(sql1);
-
-            //int ID = 1 + DBInquory(this.sql2); データベースの量分からん
-
-            st.setString(1, Name);
-            st.setDATE(2, Date);
-
-            st.executeUpdate();
+            DBChange(sql1, splitRetiredHorseData);
 
         } catch (SQLException se) {
 			System.out.println("SQL Error: " + se.toString() + " "

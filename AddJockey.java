@@ -19,11 +19,11 @@ public class AddJockey extends Add{
             System.out.println("騎手要素の入力: 名前(VARCHAR(9))");
             String JockeyName = scanner.nextLine();
 
-            rs = st.executeQuery(sql1);
+            rs = st.executeQuery(sql2);
             int JockeyID = rs.getInt("jockey.ID");
             JockeyID++;
             
-            DBChange(sql2, JockeyID);
+            DBChange(sql1, JockeyID);
 
         } catch (SQLException se) {
 			System.out.println("SQL Error: " + se.toString() + " "
