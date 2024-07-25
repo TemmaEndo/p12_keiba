@@ -26,18 +26,11 @@
 		EditAdd a24 = new EditAddretired();
 		EditAdd a25 = new EditAddJockey();
 
-		EditDeletion d301 = new EditDeletionAffiation();
-		EditDeletion d302 = new EditDeletionFamily();
-		EditDeletion d303 = new EditDeletionHeld();
-		EditDeletion d304 = new EditDeletionHorse();
-		EditDeletion d305 = new EditDeletionJockey();
-		EditDeletion d306 = new EditDeletionOwner();
-		EditDeletion d307 = new EditDeletionOwnership();
-		EditDeletion d308 = new EditDeletionPartification();
-		EditDeletion d309 = new EditDeletionRace();
-		EditDeletion d310 = new EditDeletionRetiredHorse();
-		EditDeletion d311 = new EditDeletionTrainer();
-		EditDeletion d312 = new EditDeletionTraining();
+		EditDeletion d301 = new EditDeletionHorse(horseName);
+		EditDeletion d302 = new EditDeletionJockey(jockeyName);
+		EditDeletion d303 = new EditDeletionOwner(ownerName);
+		EditDeletion d304 = new EditDeletionRace(raceName);
+		EditDeletion d305 = new EditDeletionTrainer(trainerName);
 
 		EditChange c401 = new EditChangeAffiation();
 		EditChange c402 = new EditChangeFamily();
@@ -145,57 +138,49 @@
 					}
 			case "3":
 				System.out.println("削除するデータの項目を選択してください: ");
-				System.out.println("01: 所属");
-				System.out.println("02: 親");
-				System.out.println("03: 開催");
-				System.out.println("04: 馬");
-				System.out.println("05: 騎手");
-				System.out.println("06: 馬主");
-				System.out.println("07: 所有");
-				System.out.println("08: 出走");
-				System.out.println("09: レース");
-				System.out.println("10: 引退馬");
-				System.out.println("11: 調教師");
-				System.out.println("12: 調教");
+				System.out.println("01: 馬");
+				System.out.println("02: 騎手");
+				System.out.println("03: 馬主");
+				System.out.println("04: レース");
+				System.out.println("05: 調教師");
 				System.out.println("番号を入力してください: ");
 				
 				String linedel = scanner.nextLine();
 				switch(linedel) {
 					case "01":
-						d301.DBEdit();
+						Scanner scanner = new Scanner(System.in);
+					        System.out.println("削除したい馬の名前を入力してください");
+					        String horseName = scanner.nextLine();
+					        d301.DBEdit();
+					        scanner.close();
 						break;
 					case "02":
+						Scanner scanner = new Scanner(System.in);
+					        System.out.println("削除したい騎手の名前を入力してください");
+					        String jockeyName = scanner.nextLine();
 						d302.DBEdit();
+					        scanner.close();
 						break;
 					case "03":
-						d303.DBEdit();
+						Scanner scanner = new Scanner(System.in);
+					        System.out.println("削除したい馬主の名前を入力してください");
+					        String ownerName = scanner.nextLine();
+					        d303.DBEdit();
+					        scanner.close();
 						break;
 					case "04":
+						Scanner scanner = new Scanner(System.in);
+					        System.out.println("削除したいレースの名前を入力してください");
+					        String raceName = scanner.nextLine();
 						d304.DBEdit();
+					        scanner.close();
 						break;
 					case "05":
+						Scanner scanner = new Scanner(System.in);
+					        System.out.println("削除したい調教師の名前を入力してください");
+					        String trainerName = scanner.nextLine();
 						d305.DBEdit();
-						break;
-					case "06":
-						d306.DBEdit();
-						break;
-					case "07":
-						d307.DBEdit();
-						break;
-					case "08":
-						d308.DBEdit();
-						break;
-					case "09":
-						d309.DBEdit();
-						break;
-					case "10":
-						d310.DBEdit();
-						break;
-					case "11":
-						d311.DBEdit();
-						break;
-					case "12":
-						d312.DBEdit();
+					        scanner.close();
 						break;
 					
 					default:
