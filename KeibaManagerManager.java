@@ -39,7 +39,7 @@
 		Edit e211 = new EditDeletionTrainer();
 		Edit e212 = new EditDeletionTraining();
 
-		Edit e301 = new EditChangeAffiation();
+		Edit e301 = new EditChangeAffiliation();
 		Edit e302 = new EditChangeFamily();
 		Edit e303 = new EditChangeHeld();
 		Edit e304 = new EditChangeHorse();

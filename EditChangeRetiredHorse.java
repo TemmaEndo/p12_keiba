@@ -7,7 +7,7 @@
  import java.util.*;
  import java.sql.*;
 
- public class EditChangeAffiliation extends EditChange{
+ public class EditChangeRetiredHorse extends EditChange{
     String sql1="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND name LIKE ? ORDER BY name;";
     String sql2="SELECT name,barnName,ID FROM affiliation,trainer WHERE trainerID=ID AND trainerID = ? ORDER BY name;";
     String sql3="UPDATE affiliation SET barnName = ? WHERE trainerID = ?;";
@@ -102,7 +102,7 @@
         return barn;
 
     }
-    EditChangeAffiliation(){
+    EditChangeRetiredHorse(){
         super();
     }
 }
