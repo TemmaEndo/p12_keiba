@@ -1,0 +1,266 @@
+/**
+ * KeibaManager
+ * 競馬管理アプリケーションの本体となるクラス
+ * @author Temma Endo
+ */
+
+
+ import java.util.*;
+ import java.sql.*;
+
+ public class KeibaManager {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+    
+		Search s111 = new SearchRaceName();
+		Search s112 = new SearchRaceYear();
+
+		Search s121 = new SearchHorseAge();
+		Search s122 = new SearchHorseName();
+
+		Search s13 = new SearchJockey();
+
+		EditAdd a21 = new EditAddHorse();
+		EditAdd a22 = new EditAddRace();
+		EditAdd a23 = new EditAddTrainer();
+		EditAdd a24 = new EditAddretired();
+		EditAdd a25 = new EditAddJockey();
+
+		EditDeletion d301 = new EditDeletionAffiation();
+		EditDeletion d302 = new EditDeletionFamily();
+		EditDeletion d303 = new EditDeletionHeld();
+		EditDeletion d304 = new EditDeletionHorse();
+		EditDeletion d305 = new EditDeletionJockey();
+		EditDeletion d306 = new EditDeletionOwner();
+		EditDeletion d307 = new EditDeletionOwnership();
+		EditDeletion d308 = new EditDeletionPartification();
+		EditDeletion d309 = new EditDeletionRace();
+		EditDeletion d310 = new EditDeletionRetiredHorse();
+		EditDeletion d311 = new EditDeletionTrainer();
+		EditDeletion d312 = new EditDeletionTraining();
+
+		EditChange c401 = new EditChangeAffiation();
+		EditChange c402 = new EditChangeFamily();
+		EditChange c403 = new EditChangeHeld();
+		EditChange c404 = new EditChangeHorse();
+		EditChange c405 = new EditChangeJockey();
+		EditChange c406 = new EditChangeOwner();
+		EditChange c407 = new EditChangeOwnership();
+		EditChange c408 = new EditChangePartification();
+		EditChange c409 = new EditChangeRace();
+		EditChange c410 = new EditChangeRetiredHorse();
+		EditChange c411 = new EditChangeTrainer();
+		EditChange c412 = new EditChangeTraining();
+
+
+		System.out.println("=== 競馬データベース ===");
+		System.out.println("メニューを選択してください: ");
+		System.out.println("1: 検索");
+		System.out.println("2: 追加");
+		System.out.println("3: 変更");
+		System.out.println("4: 削除");
+		System.out.println("番号を入力してください: ");
+
+		String lineSorE = scanner.nextLine();
+		switch(lineSorE) {
+			case "1":
+				System.out.println("検索する項目を選択してください: ");
+				System.out.println("1: レース");
+				System.out.println("2: 馬");
+				System.out.println("3: 騎手");
+				System.out.println("番号を入力してください: ");
+				
+				String lineS = scanner.nextLine();
+				switch(lineS){
+					case "1":
+						System.out.println("使用する項目を選択してください: ");
+						System.out.println("1: 名前");
+						System.out.println("2: 開催年");
+						System.out.println("番号を入力してください: ");
+
+						String lineSR = scanner.nextLine();
+						
+						switch(lineSR){
+							case "1":
+								s111.BDsearch();
+								break;
+							case "2":
+								s112.BDsearch();
+								break;
+							default:
+								System.out.println("Incorrect number");
+						}
+					case "2":
+						System.out.println("使用する項目を選択してください: ");
+						System.out.println("1: 年齢");
+						System.out.println("2: 名前");
+						System.out.println("番号を入力してください: ");
+
+						String lineSH = scanner.nextLine();
+						
+						switch(lineSH){
+							case "1":
+								s121.BDsearch();
+								break;
+							case "2":
+								s122.BDsearch();
+								break;
+							default:
+								System.out.println("Incorrect number");
+						}
+					case "3":
+						s13.DBSearch();
+						break;
+					default:
+						System.out.println("Incorrect number");
+					}
+			case "2":
+					System.out.println("追加するデータの項目を選択してください: ");
+					System.out.println("1: 馬");
+					System.out.println("2: レース");
+					System.out.println("3: 調教師");
+					System.out.println("4: 引退馬");
+					System.out.println("5: 騎手");
+					System.out.println("番号を入力してください: ");
+
+					String lineAdd = scanner.nextLine();
+					switch(lineAdd) {
+						case "1":
+							a21.DBEdit();
+							break;
+						case "2":
+							a22.DBEdit();
+							break;
+						case "3":
+							a23.DBEdit();
+							break;
+						case "4":
+							a24.DBEdit();
+							break;
+						case "5":
+							a25.DBEdit();
+							break;
+						default:
+							System.out.println("Incorrect number");
+					}
+			case "3":
+				System.out.println("削除するデータの項目を選択してください: ");
+				System.out.println("01: 所属");
+				System.out.println("02: 親");
+				System.out.println("03: 開催");
+				System.out.println("04: 馬");
+				System.out.println("05: 騎手");
+				System.out.println("06: 馬主");
+				System.out.println("07: 所有");
+				System.out.println("08: 出走");
+				System.out.println("09: レース");
+				System.out.println("10: 引退馬");
+				System.out.println("11: 調教師");
+				System.out.println("12: 調教");
+				System.out.println("番号を入力してください: ");
+				
+				String linedel = scanner.nextLine();
+				switch(linedel) {
+					case "01":
+						d301.DBEdit();
+						break;
+					case "02":
+						d302.DBEdit();
+						break;
+					case "03":
+						d303.DBEdit();
+						break;
+					case "04":
+						d304.DBEdit();
+						break;
+					case "05":
+						d305.DBEdit();
+						break;
+					case "06":
+						d306.DBEdit();
+						break;
+					case "07":
+						d307.DBEdit();
+						break;
+					case "08":
+						d308.DBEdit();
+						break;
+					case "09":
+						d309.DBEdit();
+						break;
+					case "10":
+						d310.DBEdit();
+						break;
+					case "11":
+						d311.DBEdit();
+						break;
+					case "12":
+						d312.DBEdit();
+						break;
+					
+					default:
+						System.out.println("Incorrect number");
+				}
+			case "4":
+				System.out.println("変更するデータの項目を選択してください: ");
+				System.out.println("01: 所属");
+				System.out.println("02: 親");
+				System.out.println("03: 開催");
+				System.out.println("04: 馬");
+				System.out.println("05: 騎手");
+				System.out.println("06: 馬主");
+				System.out.println("07: 所有");
+				System.out.println("08: 出走");
+				System.out.println("09: レース");
+				System.out.println("10: 引退馬");
+				System.out.println("11: 調教師");
+				System.out.println("12: 調教");
+				System.out.println("番号を入力してください: ");
+				
+				String linecha = scanner.nextLine();
+				switch(linecha) {
+					case "01":
+						c401.DBEdit();
+						break;
+					case "02":
+						c402.DBEdit();
+						break;
+					case "03":
+						c403.DBEdit();
+						break;
+					case "04":
+						c404.DBEdit();
+						break;
+					case "05":
+						c405.DBEdit();
+						break;
+					case "06":
+						c406.DBEdit();
+						break;
+					case "07":
+						c407.DBEdit();
+						break;
+					case "08":
+						c408.DBEdit();
+						break;
+					case "09":
+						c409.DBEdit();
+						break;
+					case "10":
+						c410.DBEdit();
+						break;
+					case "11":
+						c411.DBEdit();
+						break;
+					case "12":
+						c412.DBEdit();
+						break;
+					
+					default:
+						System.out.println("Incorrect number");
+				}
+			default:
+				System.out.println("Incorrect number");
+		}
+	}
+}
