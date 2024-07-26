@@ -109,4 +109,7 @@ public class AddTrainer extends Add{
         st.close();
         conn.close();
     }
+    AddTrainer(){
+        super();
+    }
 }

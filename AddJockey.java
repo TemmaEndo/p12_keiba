@@ -40,4 +40,7 @@ public class AddJockey extends Add{
         st.close();
         conn.close();
     }
+    AddJockey(){
+        super();
+    }
 }

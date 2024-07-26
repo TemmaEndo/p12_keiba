@@ -32,4 +32,8 @@ public class AddRetiredHorse extends Add{
         st.close();
         conn.close();
     }
+
+    AddRetiredHorse(){
+        super();
+    }
 }

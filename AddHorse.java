@@ -116,4 +116,7 @@ public class AddHorse extends Add{
         st.close();
         conn.close();
     }
+    AddHorse(){
+        super();
+    }
 }
