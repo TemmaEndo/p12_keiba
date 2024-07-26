@@ -10,7 +10,7 @@ import java.sql.*;
 public class AddRetiredHorse extends Add{
     private Scanner scanner = new Scanner(System.in);
 
-    String sql1 = " INSERT INTO family(Name, Date) VALUES (?, ?) ";
+    String sql1 = " INSERT INTO family(name, date) VALUES (?, ?) ";
 
     @Override
     void DoAdd(){
@@ -21,10 +21,7 @@ public class AddRetiredHorse extends Add{
 
             DBChange(sql1, splitRetiredHorseData);
 
-        } catch (SQLException se) {
-			System.out.println("SQL Error: " + se.toString() + " "
-				+ se.getErrorCode() + " " + se.getSQLState());
-		} catch (Exception e) {
+        } catch (Exception e) {
 			System.out.println("Error: " + e.toString() + e.getMessage());
 		}
 	}

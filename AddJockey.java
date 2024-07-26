@@ -10,8 +10,8 @@ import java.sql.*;
 public class AddJockey extends Add{
     private Scanner scanner = new Scanner(System.in);
 
-    String sql1 = " INSERT INTO jockey(jockey.ID, jockey.name) VALUES (?, ?) ";
-    String sql2 = " SELECT MAX(jockey.ID) FROM jockey ";
+    String sql1 = " INSERT INTO jockey(ID, name) VALUES (?, ?) ";
+    String sql2 = " SELECT MAX(ID) FROM jockey ";
 
     @Override
     void DoAdd(){
@@ -22,8 +22,9 @@ public class AddJockey extends Add{
             rs = st.executeQuery(sql2);
             int JockeyID = rs.getInt("jockey.ID");
             JockeyID++;
+            String JockID = Integer.toString(JockeyID);
             
-            DBChange(sql1, JockeyID);
+            DBChange(sql1, JockID);
 
         } catch (SQLException se) {
 			System.out.println("SQL Error: " + se.toString() + " "

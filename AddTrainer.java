@@ -11,7 +11,7 @@ public class AddTrainer extends Add{
     private Scanner scanner = new Scanner(System.in);
 
     String sql1 = " INSERT INTO trainer(ID, name) VALUES (?, ?) ";
-    String sql2 = " SELECT MAX(TrainerID) FROM trainer ";
+    String sql2 = " SELECT MAX(ID) FROM trainer ";
     String sql3 = " SELECT ID, name FROM barn, WHERE name LIKE ? ";
     String sql4 = " SELECT ID, name FROM barn, WHERE name = ? ";
 
@@ -25,11 +25,13 @@ public class AddTrainer extends Add{
             int TrainerID = rs.getInt("trainer.ID");
             TrainerID++;
 
-            DBChange(sql1, trainerID, trainerName);
+            String TraID = Integer.toString(TrainerID);
+
+            DBChange(sql1, TraID, trainerName);
 
             System.out.println("厩舎所属要素の入力:");
 
-            DBChange(sql2, trainerID, returnName("厩舎名"));
+            DBChange(sql2, TraID, returnName("厩舎名"));
 
         } catch (SQLException se) {
 			System.out.println("SQL Error: " + se.toString() + " "
@@ -40,12 +42,13 @@ public class AddTrainer extends Add{
 	}
 
     String returnName(String target){
+        String reID = "";
         try{
             //検索
             this.rs=DBInquory(this.sql3,"%"+InputKeyword(target)+"%");
             if (!rs.isBeforeFirst() ) {    
                 System.out.println("存在しません。新規登録してください。");
-                return 0;
+                return "";
                 //あとで
             } else{
                 //結果
@@ -69,7 +72,8 @@ public class AddTrainer extends Add{
                     }while(!confirmation.matches("[yYnN]"));
                 }while(!confirmation.matches("[yY]"));
 
-                return ID.get(key);
+                reID = ID.get(key);
+                return reID;
             }
         
 		} catch (SQLException se) {
@@ -78,6 +82,7 @@ public class AddTrainer extends Add{
 		} catch (Exception e) {
 			System.out.println("Error: " + e.toString() + e.getMessage());
 		}
+        return reID;
     }
 
     List<String> InquoryResultDisplay(ResultSet rs,int i){

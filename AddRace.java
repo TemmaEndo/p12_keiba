@@ -8,6 +8,7 @@ import java.util.*;
 import java.sql.*;
 
 public class AddRace extends Add{
+    /*
     String sql1 = " INSERT INTO Race(ID, year, date, raceNum, name, baba, raceRank, num, distance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
     String sql2 = " SELECT MAX(race.ID) FROM race ";
 
@@ -42,7 +43,7 @@ public class AddRace extends Add{
             System.out.println("Error: " + e.toString() + e.getMessage());
         }
     }
-
+*/
     protected void finalize() throws Throwable {
         // 終了処理
         rs.close();

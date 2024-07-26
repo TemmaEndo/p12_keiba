@@ -10,11 +10,11 @@ import java.sql.*;
 public class AddHorse extends Add{
     private Scanner scanner = new Scanner(System.in);
 
-    String sql1 = " INSERT INTO horse(horse.name, birthday, sex) VALUES (?, ?, ?) ";
+    String sql1 = " INSERT INTO horse(name, birthday, sex) VALUES (?, ?, ?) ";
     String sql2 = " SELECT ID, name FROM ?, WHERE name LIKE ? ";
     String sql3 = " SELECT ID, name FROM ?, WHERE ID = ? ";
     String sql4 = " INSERT INTO training(horseID, trainerID) VALUES (?, ?, ?) ";
-    String sql5 = " INSERT INTO ownner(owner.ID, owner.name) VALUES (?, ?) ";
+    String sql5 = " INSERT INTO ownner(ID, name) VALUES (?, ?) ";
 
     @Override
     void DoAdd(){
@@ -27,11 +27,17 @@ public class AddHorse extends Add{
 
             System.out.println("調教要素の入力:");
 
-            DBChange(sql4, splitHorseData[0], returnID("trainer", "調教師名"));
+            String horseName = splitHorseData[0];
+
+            String trainerID = Integer.toString(returnID("trainer", "調教師名"));
+
+            DBChange(sql4, horseName, trainerID);
 
             System.out.println("馬主所有要素の入力:");
+
+            String ownerID = Integer.toString(returnID("owner", "馬主名"));
             
-            DBChange(sql5, splitHorseData[0], returnID("owner", "馬主名"));
+            DBChange(sql5, horseName, ownerID);
 
             st.executeUpdate();
         } catch (SQLException se) {
@@ -43,6 +49,7 @@ public class AddHorse extends Add{
 	}
 
     int returnID(String tableName, String target){
+        int reID = 0;
         try{
             //検索
             this.rs=DBInquory(this.sql2 ,tableName ,"%"+InputKeyword(target)+"%");
@@ -71,19 +78,17 @@ public class AddHorse extends Add{
                         confirmation=scanner.nextLine();
                     }while(!confirmation.matches("[yYnN]"));
                 }while(!confirmation.matches("[yY]"));
-
-                return ID.get(key);
+                reID = ID.get(key);
+                return reID;
             }
-        
-
-
+    
 		} catch (SQLException se) {
 			System.out.println("SQL Error: " + se.toString() + " "
 				+ se.getErrorCode() + " " + se.getSQLState());
 		} catch (Exception e) {
 			System.out.println("Error: " + e.toString() + e.getMessage());
 		}
-
+        return reID;
     }
 
 
