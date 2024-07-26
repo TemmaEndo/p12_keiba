@@ -12,6 +12,7 @@ public abstract class Add {
     Connection conn;
     PreparedStatement st;
     ResultSet rs;
+    int rc;
 
     abstract void DoAdd();
     ResultSet DBInquory(String sql,String ...keyWord){
@@ -39,7 +40,7 @@ public abstract class Add {
                     int num = Integer.parseInt(keyWord[i]);
                     st.setInt(i+1, num); // ここでSQLの ? の場所に値を埋め
                 }else{
-                    return ;
+                    break;
                 } 
             }
             // SQLを実行して、実行結果をResultSetに入れる
@@ -85,7 +86,7 @@ public abstract class Add {
                     int num = Integer.parseInt(keyWord[i]);
                     st.setInt(i+1, num); // ここでSQLの ? の場所に値を埋め
                 }else{
-                    return ;
+                    break;
                 } 
             }
             // SQLを実行して、実行結果をResultSetに入れる
