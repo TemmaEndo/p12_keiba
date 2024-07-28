@@ -13,7 +13,7 @@ public class SearchJockey extends Search{
     // &useServerPrepStmts=true <- 静的プレースホルダを使用
     String sql1 = "SELECT * FROM jockey WHERE name LIKE ? ORDER BY ID;";
     String sql2 = "SELECT * FROM jockey WHERE ID=?;" ;
-    String sql3 = " SELECT date,race.name,horceName,leg,horceRank From jockey,run,race WHERE jockey.ID=run.jockeyID AND race.ID=raceID AND jockey.ID=? ORDER BY date DESC;";
+    String sql3 = " SELECT date,race.name,horseName,leg,horseRank From jockey,run,race WHERE jockey.ID=run.jockeyID AND race.ID=raceID AND jockey.ID=? ORDER BY date DESC;";
     String target;
     //List<Integer> keyWords;
 
@@ -36,7 +36,7 @@ public class SearchJockey extends Search{
                         key = Integer.parseInt(InputKeyword("番号"))-1;
                     }while(key>= ID.size()||key<0);
                     //表示
-                    this.rs=DBInquory(this.sql2,ID.get(key));
+                    this.rs=DBInquory(this.sql2,String.valueOf(ID.get(key)));
                     List<Integer> ID2=InquoryResultDisplay(this.rs,key+1);
                     System.out.println("この騎手でよろしいでしょうか<y/n>");
                     do{
@@ -45,7 +45,7 @@ public class SearchJockey extends Search{
                     }while(!confirmation.matches("[yYnN]"));
                 }while(!confirmation.matches("[yY]"));
                 //レース情報表示
-                this.rs=DBInquory(this.sql3,ID.get(key));
+                this.rs=DBInquory(this.sql3,String.valueOf(ID.get(key)));
                 EntryRaceDisplay(this.rs);
             }
 		} catch (SQLException se) {
@@ -74,17 +74,17 @@ public class SearchJockey extends Search{
         return ID;
     }
     void EntryRaceDisplay(ResultSet rs){
-        //" SELECT date,race.name,horceName,leg,horceRank From jockey,run,race WHERE jockey.ID=run.jockeyID AND race.ID=raceID AND jockey.I
+        //" SELECT date,race.name,horseName,leg,horseRank From jockey,run,race WHERE jockey.ID=run.jockeyID AND race.ID=raceID AND jockey.I
 		try {
             System.out.println("\nレース戦績");                             
             System.out.println("出走日    \tレース名　　　　　　　　　　　\t馬名　　　　　　　\t脚質\t順位");
             while(rs.next()){
                 String date = rs.getString("date");
                 String raceName = rs.getString("race.name");
-                String horceName = rs.getString("horceName");
+                String horseName = rs.getString("horseName");
                 String leg = rs.getString("leg");
-                int horceRank = rs.getInt("horceRank");
-                System.out.println(date+"\t"+PlusSpace(raceName,15)+"\t"+PlusSpace(horceName,9)+"\t"+leg+"\t"+horceRank);
+                int horseRank = rs.getInt("horseRank");
+                System.out.println(date+"\t"+PlusSpace(raceName,15)+"\t"+PlusSpace(horseName,9)+"\t"+leg+"\t"+horseRank);
             }
 		} catch (SQLException se) {
 			System.out.println("SQL Error: " + se.toString() + " "
