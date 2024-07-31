@@ -103,7 +103,7 @@ public abstract class Change{
 
         try {
             conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost/test?useSSL=false&characterEncoding=utf8&useServerPrepStmts=true", 
+                "jdbc:mysql://localhost/keiba?useSSL=false&characterEncoding=utf8&useServerPrepStmts=true", 
                 "root", ""
             );		 
 
