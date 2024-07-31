@@ -7,7 +7,7 @@
 import java.util.*;
 import java.sql.*;
 
-public abstract class Change{
+public abstract class Change {
 
     Connection conn;
     PreparedStatement st;
