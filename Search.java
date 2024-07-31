@@ -51,24 +51,6 @@ public abstract class Search{
 		}
         return rs;
     }
-    ResultSet  DBInquory(String sql,int ...keyWord){
-		try {
-            st=conn.prepareStatement(sql);
-
-            // 本来はここで入力された文字列が不正なものでないか検査した方が良い
-            for(int i=0;i<keyWord.length;i++){
-                st.setInt(i+1, keyWord[i]); // ここでSQLの ? の場所に値を埋め込んでいる
-            }
-                    // SQLを実行して、実行結果をResultSetに入れる
-            rs=st.executeQuery();
-		} catch (SQLException se) {
-			System.out.println("SQL Error: " + se.toString() + " "
-				+ se.getErrorCode() + " " + se.getSQLState());
-		} catch (Exception e) {
-			System.out.println("Error: " + e.toString() + e.getMessage());
-		}
-        return rs;
-    }
     String InputKeyword(String targetName){
         Scanner scanner = new Scanner(System.in);
         System.out.println(targetName+"を入力してください:");
