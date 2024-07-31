@@ -1,5 +1,5 @@
 /**
- * EditChangeAffiliation
+ * ChangeAffiliation
  * 所属要素の変更に責任を持つクラス
  * @author Onda Daiki
  */
