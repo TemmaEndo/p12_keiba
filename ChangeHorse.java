@@ -44,8 +44,6 @@ public class ChangeHorse extends Change {
                 System.out.println("変更先の誕生日を入力してください (YYYY-MM-DD): ");
                 Scanner scanner = new Scanner(System.in);
                 String Birthday = scanner.nextLine();
-                //Date sqlDate= Date.valueOf(Birthday);
-                //System.out.println("SQLのDate型 = " + sqlDate);
 
                 // 誕生日を更新
                 DBChange(sql3, Birthday, String.valueOf(ID.get(key)));
