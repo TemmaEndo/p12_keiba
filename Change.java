@@ -1,7 +1,7 @@
 /**
  * EditChange
  * 要素の変更に責任を持つクラス
- * @author 
+ * @author Daiki Onda
  */
 
  import java.util.*;
