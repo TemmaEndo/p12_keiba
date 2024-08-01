@@ -7,7 +7,6 @@ public class Main {
         ChangeJockey jockey = new ChangeJockey();
         ChangeRace race = new ChangeRace();
         ChangeRetiredHorse Rhorse = new ChangeRetiredHorse();
-        ChangeTrainer trainer = new ChangeTrainer();
         //horse.DoChange();
         jockey.DoChange();
         //race.DoChange();
