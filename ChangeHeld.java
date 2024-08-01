@@ -8,15 +8,15 @@ import java.util.*;
 import java.sql.*;
 
 public class ChangeHeld extends Change {
-    String sql1 = "SELECT * FROM horse WHERE name LIKE ? ORDER BY name;";
-    String sql2 = "SELECT * FROM horse WHERE name = ?";
-    String sql3 = "UPDATE horse SET birthday = ? WHERE name = ?";
+    String sql1 = "SELECT * FROM held WHERE raceID LIKE ? ORDER BY raceID;";
+    String sql2 = "select *,race.ID from race,held where raceID = race.ID AND raceID = ?;";
+    String sql3 = "UPDATE race SET going = ?,temperature = ?,weather = ? WHERE ID = ?";
 
     @Override
     void DoChange() {
         try {
             // 検索
-            this.rs = DBInquory(this.sql1, "%" + InputKeyword("変更したい馬") + "%");
+            this.rs = DBInquory(this.sql1, "%" + InputKeyword("変更したいレース情報") + "%");
             if (!this.rs.isBeforeFirst()) {
                 System.out.println("No data");
             } else {
@@ -33,24 +33,48 @@ public class ChangeHeld extends Change {
                     // 表示
                     this.rs = DBInquory(this.sql2, ID.get(key));
                     List<String> ID2 = InquoryResultDisplay(this.rs, key + 1);
-                    System.out.println("この馬でよろしいでしょうか<y/n>");
+                    System.out.println("このレースでよろしいでしょうか<y/n>");
                     do {
                         Scanner scanner = new Scanner(System.in);
                         confirmation = scanner.nextLine();
                     } while (!confirmation.matches("[yYnN]"));
                 } while (!confirmation.matches("[yY]"));
 
-                // 変更先の誕生日を入力
-                System.out.println("変更先の誕生日を入力してください (YYYY-MM-DD): ");
-                Scanner scanner = new Scanner(System.in);
-                String Birthday = scanner.nextLine();
+                // 馬場の状態を入力
+                System.out.println("馬場の状態を入力してください(1字): ");
+                Scanner scanner1 = new Scanner(System.in);
+                String going = scanner1.nextLine();
 
-                // 誕生日を更新
-                DBChange(sql3, Birthday, ID.get(key).toString());
+                // 馬場を更新
+                DBChange(sql3, going, ID.get(key).toString());
 
                 // 表示
                 this.rs = DBInquory(this.sql2, ID.get(key));
                 List<String> ID2 = InquoryResultDisplay(this.rs, key + 1);
+
+                // 気温を入力
+                System.out.println("気温を入力して下さい: ");
+                Scanner scanner2 = new Scanner(System.in);
+                String temp = scanner2.nextLine();
+
+                // 誕生日を更新
+                DBChange(sql3, temp, ID.get(key).toString());
+
+                // 表示
+                this.rs = DBInquory(this.sql2, ID.get(key));
+                List<String> ID3 = InquoryResultDisplay(this.rs, key + 1);
+
+                // 天気を入力してください
+                System.out.println("天気を入力してください(1字): ");
+                Scanner scanner3 = new Scanner(System.in);
+                String weather = scanner3.nextLine();
+
+                // 天気を更新
+                DBChange(sql3, weather, ID.get(key).toString());
+
+                // 表示
+                this.rs = DBInquory(this.sql2, ID.get(key));
+                List<String> ID4 = InquoryResultDisplay(this.rs, key + 1);
             }
         } catch (SQLException se) {
             System.out.println("SQL Error: " + se.toString() + " " + se.getErrorCode() + " " + se.getSQLState());
@@ -63,10 +87,12 @@ public class ChangeHeld extends Change {
         List<String> ID = new ArrayList<String>();
         try {
             while (rs.next()) {
-                String name = rs.getString("name");
-                ID.add(name);
-                String birthday = rs.getString("birthday");
-                System.out.println(i + "." + "\t" + name + "\t" + birthday);
+                String raceID = rs.getString("raceID");
+                ID.add(raceID);
+                String going = rs.getString("going");
+                String temp = rs.getString("temperature");
+                String weather = rs.getString("going");
+                System.out.println(i + "." + "\t" + raceID + "\t" + going + "\t" + temp + "\t" + weather);
                 i++;
             }
         } catch (SQLException se) {

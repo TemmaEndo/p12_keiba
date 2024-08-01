@@ -13,7 +13,7 @@ public class Main {
         ChangeHeld held = new ChangeHeld();
         ChangeRace race = new ChangeRace();
         //horse.DoChange();
-        //held.DoChange();
-        race.DoChange();
+        held.DoChange();
+        //race.DoChange();
     }
 }
