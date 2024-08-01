@@ -13,7 +13,7 @@ public class SearchRace extends Search{
     // &useServerPrepStmts=true <- 静的プレースホルダを使用
     String sql1;
     String sql2 = "SELECT race.ID,race.name,raceRank,year,tracksName,raceNum,baba,dist,going,temperature,weather FROM race,held,tracks WHERE ID =raceID AND tracksName =tracks.name AND race.ID=?;";
-    String sql3 = "SELECT horceRank,odds,bracketNum,horceName,weight,sex,age,time,jockey.name FROM race,run,horce,jockey WHERE race.ID =raceID AND jockey.ID=jockeyID AND horce.name=horceName AND raceID=? ORDER BY CASE WHEN horceRank = 0 THEN 0 ELSE 100 END DESC,horceRank;";
+    String sql3 = "SELECT horseRank,odds,bracketNum,horseName,weight,sex,age,time,jockey.name FROM race,run,horse,jockey WHERE race.ID =raceID AND jockey.ID=jockeyID AND horse.name=horseName AND raceID=? ORDER BY CASE WHEN horseRank = 0 THEN 0 ELSE 100 END DESC,horseRank;";
     String target;
     //List<String> keyWords;
 
@@ -49,7 +49,7 @@ public class SearchRace extends Search{
                 RaceInfoDisplay(this.rs);
                 //出走馬情報表示
                 this.rs=DBInquory(this.sql3,ID.get(key));
-                EntryHorceInfoDisplay(this.rs);
+                EntryhorseInfoDisplay(this.rs);
             }
 		} catch (SQLException se) {
 			System.out.println("SQL Error: " + se.toString() + " "
@@ -101,23 +101,23 @@ public class SearchRace extends Search{
 			System.out.println("Error: " + e.toString() + e.getMessage());
 		}
     }
-    void EntryHorceInfoDisplay(ResultSet rs){
-        //SELECT horceRank,odds,bracketNum,horceName,weight,sex,age,time 
+    void EntryhorseInfoDisplay(ResultSet rs){
+        //SELECT horseRank,odds,bracketNum,horseName,weight,sex,age,time 
 		try {
             System.out.println("\n出走馬情報");                
             System.out.println("順位"+"\t"+"人気"+"\t"+"枠番"+"\t"+"馬名　　　　　　"+"\t"+"騎手　　　　　　　　"+"\t"+"体重"+"\t"+"年齢"+"\t"+"タイム");
             while(rs.next()){
-                int horceRank = rs.getInt("horceRank");
+                int horseRank = rs.getInt("horseRank");
                 int odds = rs.getInt("odds");
                 int bracketNum = rs.getInt("bracketNum");
-                String horceName = rs.getString("horceName");
+                String horseName = rs.getString("horseName");
                 String jockeyName = rs.getString("jockey.name");
                 int weight = rs.getInt("weight");
                 String sex = rs.getString("sex");
                 int age = rs.getInt("age");
                 float time = rs.getFloat("time");
 
-                System.out.println(horceRank+"\t"+odds+"\t"+bracketNum+"\t"+PlusSpace(horceName,9)+"\t"+PlusSpace(jockeyName,10)+"\t"+weight+"\t"+sex+age+"\t"+(int)(time/60)+":"+String.format("%02d"+"."+"%1d",(int)(time%60),(int)((time-(int)time)*10)));
+                System.out.println(horseRank+"\t"+odds+"\t"+bracketNum+"\t"+PlusSpace(horseName,9)+"\t"+PlusSpace(jockeyName,10)+"\t"+weight+"\t"+sex+age+"\t"+(int)(time/60)+":"+String.format("%02d"+"."+"%1d",(int)(time%60),(int)((time-(int)time)*10)));
 
             }
 		} catch (SQLException se) {
