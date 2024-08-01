@@ -4,13 +4,12 @@ import java.sql.*;
 public class Main {
     public static void main(String[] args) {
         ChangeHorse horse = new ChangeHorse();
+        ChangeHeld held = new ChangeHeld();
         ChangeJockey jockey = new ChangeJockey();
         ChangeRace race = new ChangeRace();
-        ChangeRetiredHorse Rhorse = new ChangeRetiredHorse();
         //horse.DoChange();
+        //held.DoChange();
         jockey.DoChange();
         //race.DoChange();
-        //Rhorse.DoChange();
-        //trainer.DoChange();
     }
 }
