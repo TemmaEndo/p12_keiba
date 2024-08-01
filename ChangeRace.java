@@ -8,8 +8,8 @@ import java.util.*;
 import java.sql.*;
 
 public class ChangeRace extends Change {
-    String sql1 = "SELECT * FROM race WHERE name LIKE ? ORDER BY name;";
-    String sql2 = "SELECT * FROM race WHERE name = ?";
+    String sql1 = "SELECT * FROM race WHERE ID LIKE ? ORDER BY ID;";
+    String sql2 = "SELECT * FROM race WHERE ID = ?";
     String sql3 = "UPDATE race SET date = ? WHERE name = ?";
 
     @Override
