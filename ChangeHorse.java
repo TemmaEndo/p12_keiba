@@ -1,16 +1,10 @@
-/**
- * EditChangeHorse
- * 馬要素の変更に責任を持つクラス
- * @author Kaito Sugita
- */
-
 import java.util.*;
 import java.sql.*;
 
 public class ChangeHorse extends Change {
-    String sql1 = "SELECT name FROM horse WHERE name LIKE ? ORDER BY name;"; // 馬を選択
-    String sql2 = "SELECT name, birthday, sex FROM horse WHERE name = ?"; // 馬の詳細を取得
-    String sql3 = "UPDATE horse SET birthday = ? WHERE name = ?"; // 誕生日を更新
+    String sql1 = "SELECT * FROM horse WHERE name LIKE ? ORDER BY name;";
+    String sql2 = "SELECT * FROM horse WHERE name = ?";
+    String sql3 = "UPDATE horse SET birthday = ? WHERE name = ?";
 
     @Override
     void DoChange() {
@@ -21,7 +15,7 @@ public class ChangeHorse extends Change {
                 System.out.println("No data");
             } else {
                 // 結果
-                List<Integer> ID = InquoryResultDisplay(this.rs, 1);
+                List<String> ID = InquoryResultDisplay(this.rs, 1);
                 // 確認
                 String confirmation;
                 int key = -1;
@@ -32,7 +26,7 @@ public class ChangeHorse extends Change {
                     } while (key >= ID.size() || key < 0);
                     // 表示
                     this.rs = DBInquory(this.sql2, ID.get(key));
-                    List<Integer> ID2 = InquoryResultDisplay(this.rs, key + 1);
+                    List<String> ID2 = InquoryResultDisplay(this.rs, key + 1);
                     System.out.println("この馬でよろしいでしょうか<y/n>");
                     do {
                         Scanner scanner = new Scanner(System.in);
@@ -46,11 +40,11 @@ public class ChangeHorse extends Change {
                 String Birthday = scanner.nextLine();
 
                 // 誕生日を更新
-                DBChange(sql3, Birthday, String.valueOf(ID.get(key)));
+                DBChange(sql3, Birthday, ID.get(key).toString());
 
                 // 表示
                 this.rs = DBInquory(this.sql2, ID.get(key));
-                List<Integer> ID2 = InquoryResultDisplay(this.rs, key + 1);
+                List<String> ID2 = InquoryResultDisplay(this.rs, key + 1);
             }
         } catch (SQLException se) {
             System.out.println("SQL Error: " + se.toString() + " " + se.getErrorCode() + " " + se.getSQLState());
@@ -59,13 +53,13 @@ public class ChangeHorse extends Change {
         }
     }
 
-    List<Integer> InquoryResultDisplay(ResultSet rs, int i) {
-        List<Integer> ID = new ArrayList<Integer>();
+    List<String> InquoryResultDisplay(ResultSet rs, int i) {
+        List<String> ID = new ArrayList<String>();
         try {
             while (rs.next()) {
                 String name = rs.getString("name");
+                ID.add(name);
                 String birthday = rs.getString("birthday");
-                ID.add(rs.getInt("ID"));
                 System.out.println(i + "." + "\t" + name + "\t" + birthday);
                 i++;
             }

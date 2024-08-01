@@ -99,8 +99,6 @@ public abstract class Change {
         return str;
     }
     Change(){
-        //keyWords=new ArrayList<String>();
-
         try {
             conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost/keiba?useSSL=false&characterEncoding=utf8&useServerPrepStmts=true", 
