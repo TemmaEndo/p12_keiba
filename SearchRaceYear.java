@@ -19,5 +19,4 @@ public class SearchRaceYear extends SearchRace{
         st.close();
         conn.close();
     }
-    //void horceInfoDisplay(ResultSet rs){
 }
