@@ -41,12 +41,12 @@ public class ChangeRace extends Change {
                 } while (!confirmation.matches("[yY]"));
 
                 // 変更先の誕生日を入力
-                System.out.println("レースの開催日を入力してください (YYYY-MM-DD): ");
+                System.out.println("変更先の誕生日を入力してください (YYYY-MM-DD): ");
                 Scanner scanner = new Scanner(System.in);
-                String date = scanner.nextLine();
+                String Birthday = scanner.nextLine();
 
                 // 誕生日を更新
-                DBChange(sql3, date, ID.get(key).toString());
+                DBChange(sql3, Birthday, ID.get(key).toString());
 
                 // 表示
                 this.rs = DBInquory(this.sql2, ID.get(key));
@@ -65,8 +65,8 @@ public class ChangeRace extends Change {
             while (rs.next()) {
                 String name = rs.getString("name");
                 ID.add(name);
-                String date = rs.getString("date");
-                System.out.println(i + "." + "\t" + name + "\t" + date);
+                String birthday = rs.getString("date");
+                System.out.println(i + "." + "\t" + name + "\t" + birthday);
                 i++;
             }
         } catch (SQLException se) {
