@@ -1,3 +1,9 @@
+/**
+* ChangeHorse
+* 馬の変更に責任を持つクラス
+* @author Sugita Kaito
+*/
+
 import java.util.*;
 import java.sql.*;
 

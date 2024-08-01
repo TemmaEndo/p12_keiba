@@ -1,6 +1,6 @@
 /**
- * EditChangeJockey
- * 騎手要素の変更に責任を持つクラス
+ * ChangeRace
+ * レースの変更に責任を持つクラス
  * @author Kaito Sugita
  */
 
