@@ -19,5 +19,5 @@ public class SearchRaceName extends SearchRace{
         st.close();
         conn.close();
     }
-    //void horceInfoDisplay(ResultSet rs){
+
 }
