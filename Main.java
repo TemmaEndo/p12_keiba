@@ -12,8 +12,8 @@ public class Main {
         ChangeHorse horse = new ChangeHorse();
         ChangeHeld held = new ChangeHeld();
         ChangeRace race = new ChangeRace();
-        //horse.DoChange();
+        horse.DoChange();
         //held.DoChange();
-        race.DoChange();
+        //race.DoChange();
     }
 }
