@@ -8,9 +8,9 @@ import java.util.*;
 import java.sql.*;
 
 public class ChangeRace extends Change {
-    String sql1 = "SELECT * FROM race WHERE ID LIKE ? ORDER BY ID;";
+    String sql1 = "SELECT * FROM race WHERE name LIKE ? ORDER BY name;";
     String sql2 = "SELECT * FROM race WHERE ID = ?";
-    String sql3 = "UPDATE race SET date = ? WHERE name = ?";
+    String sql3 = "UPDATE race SET date = ? WHERE ID = ?";
 
     @Override
     void DoChange() {
@@ -40,13 +40,13 @@ public class ChangeRace extends Change {
                     } while (!confirmation.matches("[yYnN]"));
                 } while (!confirmation.matches("[yY]"));
 
-                // 変更先の誕生日を入力
-                System.out.println("変更先の誕生日を入力してください (YYYY-MM-DD): ");
+                // 日付を入力
+                System.out.println("正しい日付を入力してください (YYYY-MM-DD): ");
                 Scanner scanner = new Scanner(System.in);
-                String Birthday = scanner.nextLine();
+                String date = scanner.nextLine();
 
-                // 誕生日を更新
-                DBChange(sql3, Birthday, ID.get(key).toString());
+                // 日付を更新
+                DBChange(sql3, date, ID.get(key).toString());
 
                 // 表示
                 this.rs = DBInquory(this.sql2, ID.get(key));
@@ -63,10 +63,12 @@ public class ChangeRace extends Change {
         List<String> ID = new ArrayList<String>();
         try {
             while (rs.next()) {
+                String raceID = rs.getString("ID");
+                ID.add(raceID);
                 String name = rs.getString("name");
-                ID.add(name);
-                String birthday = rs.getString("date");
-                System.out.println(i + "." + "\t" + name + "\t" + birthday);
+                int year = rs.getInt("year");
+                String date = rs.getString("date");
+                System.out.println(i + "." + "\t" + raceID + "\t" + year + "\t" + date + "\t" + name);
                 i++;
             }
         } catch (SQLException se) {
