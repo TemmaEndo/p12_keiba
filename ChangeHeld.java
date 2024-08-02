@@ -56,7 +56,7 @@ public class ChangeHeld extends Change {
                 String weather = scanner3.nextLine();
 
                 // 馬場、気温、天気を更新
-                DBChange(sql3, going, temp, weather, ID.get(key));
+                DBChange(sql3, going, temp, weather, ID.get(key).toString());
 
                 // 表示
                 this.rs = DBInquory(this.sql2, ID.get(key));

@@ -9,8 +9,8 @@ import java.sql.*;
 
 public class ChangeTest extends Change {
     String sql1 = "SELECT * FROM held WHERE raceID LIKE ? ORDER BY raceID;";
-    String sql2 = "select *,race.ID from race,held where raceID = race.ID AND raceID = ?;";
-    String sql3 = "UPDATE race SET going = ?,temperature = ?,weather = ? WHERE ID = ?";
+    String sql2 = "SELECT * from held WHERE raceID = ?;";
+    String sql3 = "UPDATE held SET going = ?,temperature = ?,weather = ? WHERE raceID = ?";
 
     @Override
     void DoChange() {
@@ -45,32 +45,18 @@ public class ChangeTest extends Change {
                 Scanner scanner1 = new Scanner(System.in);
                 String going = scanner1.nextLine();
 
-                // 馬場を更新
-                DBChange(sql3, going, ID.get(key).toString());
-
-                // 表示
-                this.rs = DBInquory(this.sql2, ID.get(key));
-                List<String> ID2 = InquoryResultDisplay(this.rs, key + 1);
-
                 // 気温を入力
-                System.out.println("気温を入力して下さい: ");
+                System.out.println("気温を入力してください: ");
                 Scanner scanner2 = new Scanner(System.in);
                 String temp = scanner2.nextLine();
-
-                // 誕生日を更新
-                DBChange(sql3, temp, ID.get(key).toString());
-
-                // 表示
-                this.rs = DBInquory(this.sql2, ID.get(key));
-                List<String> ID3 = InquoryResultDisplay(this.rs, key + 1);
 
                 // 天気を入力してください
                 System.out.println("天気を入力してください(1字): ");
                 Scanner scanner3 = new Scanner(System.in);
                 String weather = scanner3.nextLine();
 
-                // 天気を更新
-                DBChange(sql3, weather, ID.get(key).toString());
+                // 馬場、気温、天気を更新
+                DBChange(sql3, going, temp, weather, ID.get(key));
 
                 // 表示
                 this.rs = DBInquory(this.sql2, ID.get(key));

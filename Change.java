@@ -24,7 +24,7 @@ public abstract class Change {
             for(int i=0;i<keyWord.length;i++){
                 st.setString(i+1, keyWord[i]); // ここでSQLの ? の場所に値を埋め込んでいる
             }
-                    // SQLを実行して、実行結果をResultSetに入れる
+            // SQLを実行して、実行結果をResultSetに入れる
             rs=st.executeQuery();
         } catch (SQLException se) {
             System.out.println("SQL Error: " + se.toString() + " "
