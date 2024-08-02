@@ -14,7 +14,7 @@
      String sql2 = " SELECT * FROM $table WHERE name LIKE ? ";
      String sql3 = " SELECT * FROM $table WHERE ID = ? ";
      String sql4 = " INSERT INTO training(horseID, trainerID) VALUES (?, ?) ";
-     String sql5 = " INSERT INTO owner(ID, name) VALUES (?, ?) ";
+     String sql5 = " INSERT INTO own(ID, name) VALUES (?, ?) ";
  
      @Override
      void DoAdd(){
