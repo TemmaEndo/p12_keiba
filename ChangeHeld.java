@@ -1,6 +1,6 @@
 /**
 * ChangeHeld
-* 開催の変更に責任を持つクラス
+* 開催情報の変更を持つクラス
 * @author Sugita Kaito
 */
 
