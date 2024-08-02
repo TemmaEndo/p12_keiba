@@ -10,12 +10,12 @@ import java.sql.*;
 public class AddRetiredHorse extends Add{
     private Scanner scanner = new Scanner(System.in);
 
-    String sql1 = " INSERT INTO family(name, date) VALUES (?, ?) ";
+    String sql1 = " INSERT INTO family(parentName, childName) VALUES (?, ?) ";
 
     @Override
     void DoAdd(){
         try{
-            System.out.println("引退馬要素の入力: 親の名前(VARCHAR(9)),引退日(DATE)");
+            System.out.println("引退馬要素の入力: 親の名前(VARCHAR(9)),引退馬の名前(VARCHAR(9))");
             String RetiredHorseData = scanner.nextLine();
             String splitRetiredHorseData[] = RetiredHorseData.split(",");
 
