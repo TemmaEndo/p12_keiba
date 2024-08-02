@@ -89,8 +89,6 @@
                      break;
                  } 
              }
-             // SQLを実行して、実行結果をResultSetに入れる
-             rc=st.executeUpdate();
          } catch (SQLException se) {
              System.out.println("SQL Error: " + se.toString() + " "
                  + se.getErrorCode() + " " + se.getSQLState());
