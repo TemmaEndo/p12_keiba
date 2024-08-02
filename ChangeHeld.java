@@ -10,7 +10,7 @@ import java.sql.*;
 public class ChangeHeld extends Change {
     String sql1 = "SELECT * FROM held WHERE raceID LIKE ? ORDER BY raceID;";
     String sql2 = "SELECT * from held WHERE raceID = ?;";
-    String sql3 = "UPDATE race SET going = ?,temperature = ?,weather = ? WHERE ID = ?";
+    String sql3 = "UPDATE held SET going = ?,temperature = ?,weather = ? WHERE ID = ?";
 
     @Override
     void DoChange() {
