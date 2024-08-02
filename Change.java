@@ -69,7 +69,7 @@
                     //float
                     float fl = Float.parseFloat(keyWord[i]);
                     st.setFloat(i+1, fl); // ここでSQLの ? の場所に値を
-                }else if(keyWord[i].matches("^\\{12}$")){
+                }else if(keyWord[i].matches("^\\d{12}$")){
                     //レースID
                     st.setString(i+1, keyWord[i]); // ここでSQLの ? の場所に値を
                 }else if(keyWord[i].matches("^\\d{1,10}$")){
