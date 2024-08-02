@@ -100,7 +100,7 @@
          List<Integer> ID=new ArrayList<Integer>();
          try {
              while(rs.next()){
-                 String name = rs.getString("");
+                 String name = rs.getString("name");
                  ID.add(rs.getInt("ID"));
                  System.out.println(i+"." + "\t"+ name);
                  i++;
