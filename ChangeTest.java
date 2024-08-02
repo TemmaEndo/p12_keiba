@@ -8,8 +8,8 @@ import java.util.*;
 import java.sql.*;
 
 public class ChangeTest extends Change {
-    String sql1 = "SELECT * FROM held WHERE raceID LIKE ? ORDER BY raceID;";
-    String sql2 = "SELECT * from held WHERE raceID = ?;";
+    String sql1 = "SELECT * FROM race,held WHERE race.ID = raceID and name LIKE ? ORDER BY name;";
+    String sql2 = "SELECT * from race,held WHERE race.ID = raceID and name = ?;";
     String sql3 = "UPDATE held SET going = ?,temperature = ?,weather = ? WHERE raceID = ?";
 
     @Override
@@ -60,7 +60,7 @@ public class ChangeTest extends Change {
 
                 // 表示
                 this.rs = DBInquory(this.sql2, ID.get(key));
-                List<String> ID4 = InquoryResultDisplay(this.rs, key + 1);
+                List<String> ID2 = InquoryResultDisplay(this.rs, key + 1);
             }
         } catch (SQLException se) {
             System.out.println("SQL Error: " + se.toString() + " " + se.getErrorCode() + " " + se.getSQLState());
@@ -75,10 +75,14 @@ public class ChangeTest extends Change {
             while (rs.next()) {
                 String raceID = rs.getString("raceID");
                 ID.add(raceID);
+                String year = rs.getString("year");
+                String date = rs.getString("date");
+                String name = rs.getString("name");
+                String tname = rs.getString("tracksName");
                 String going = rs.getString("going");
                 String temp = rs.getString("temperature");
-                String weather = rs.getString("going");
-                System.out.println(i + "." + "\t" + raceID + "\t" + going + "\t" + temp + "\t" + weather);
+                String weather = rs.getString("weather");
+                System.out.println(i + "." + "\t" + raceID + "\t" + year + "\t" + date + "\t" + name + "\t" + tname + "\t" + going + "\t" + temp + "\t" + weather);
                 i++;
             }
         } catch (SQLException se) {
