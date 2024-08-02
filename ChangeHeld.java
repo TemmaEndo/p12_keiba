@@ -77,7 +77,7 @@ public class ChangeHeld extends Change {
                 ID.add(raceID);
                 String going = rs.getString("going");
                 String temp = rs.getString("temperature");
-                String weather = rs.getString("going");
+                String weather = rs.getString("weather");
                 System.out.println(i + "." + "\t" + raceID + "\t" + going + "\t" + temp + "\t" + weather);
                 i++;
             }
