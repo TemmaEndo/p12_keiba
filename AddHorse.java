@@ -30,16 +30,12 @@
              String horseName = splitHorseData[0];
  
              String trainerID = Integer.toString(returnID("trainer", "調教師名"));
- 
-             System.out.println(trainerID);
 
              DBChange(sql4, horseName, trainerID);
  
              System.out.println("馬主所有要素の入力:");
  
              String ownerID = Integer.toString(returnID("owner", "馬主名"));
-
-             System.out.println(ownerID);
              
              DBChange(sql5, horseName, ownerID);
  
