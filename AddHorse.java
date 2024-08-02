@@ -31,11 +31,15 @@
  
              String trainerID = Integer.toString(returnID("trainer", "調教師名"));
  
+             System.out.println(trainerID);
+
              DBChange(sql4, horseName, trainerID);
  
              System.out.println("馬主所有要素の入力:");
  
              String ownerID = Integer.toString(returnID("owner", "馬主名"));
+
+             System.out.println(ownerID);
              
              DBChange(sql5, horseName, ownerID);
  
@@ -54,8 +58,7 @@
              //検索
              sql2 = sql2.replace("$table", tableName);
              this.rs=DBInquory(this.sql2 ,"%"+InputKeyword(target)+"%");
-             //sqlはうまくいってそう
-             //System.out.println(sql2);
+             sql2 = sql2.replace(tableName, "$table");
              if (!rs.isBeforeFirst() ) {    
                  System.out.println("存在しません。新規登録してください。");
                  return 0;
@@ -75,6 +78,7 @@
                      //表示
                      sql3 = sql3.replace("$table", tableName);
                      this.rs=DBInquory(this.sql3 ,String.valueOf(ID.get(key)));
+                     sql3 = sql3.replace(tableName, "$table");
                      List<Integer> ID2=InquoryResultDisplay(this.rs,key+1);
                      System.out.println("この" + target + "でよろしいでしょうか<y/n>");
                      do{
