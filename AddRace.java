@@ -31,7 +31,7 @@ public class AddRace extends Add{
             
             while ((line = buffer.readLine()) != null) {
  
-                byte[] b = line.getBytes();
+                byte b[] = line.getBytes();
                 line = new String(b, "UTF-8");
                 String race[] = line.split(",");
                 DBChange(sql1, race);
