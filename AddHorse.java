@@ -13,7 +13,7 @@ public class AddHorse extends Add{
     String sql1 = " INSERT INTO horse(name, birthday, sex) VALUES (?, ?, ?) ";
     String sql2 = " SELECT * FROM $table WHERE name LIKE ? ";
     String sql3 = " SELECT * FROM $table WHERE ID = ? ";
-    String sql4 = " INSERT INTO training(horseID, trainerID) VALUES (?, ?) ";
+    String sql4 = " INSERT INTO training(horseName, trainerID) VALUES (?, ?) ";
     String sql5 = " INSERT INTO own(horseName,ownerID) VALUES (?, ?) ";
  
     @Override
